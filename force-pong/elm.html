@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="UTF-8"><title>FormComponents</title><style>html,head,body { padding:0; margin:0; }
+<html><head><meta charset="UTF-8"><title>Main</title><style>html,head,body { padding:0; margin:0; }
 body { font-family: calibri, helvetica, arial, sans-serif; }</style><script type="text/javascript">
 (function() {
 'use strict';
@@ -13100,6 +13100,192 @@ var _debois$elm_mdl$Material$Model = F8(
 	function (a, b, c, d, e, f, g, h) {
 		return {button: a, textfield: b, menu: c, snackbar: d, layout: e, toggles: f, tooltip: g, tabs: h};
 	});
+var _debois$elm_mdl$Material_Color$text = function (_p0) {
+	var _p1 = _p0;
+	return _debois$elm_mdl$Material_Options$cs(
+		A2(_elm_lang$core$Basics_ops['++'], 'mdl-color-text--', _p1._0));
+};
+var _debois$elm_mdl$Material_Color$background = function (_p2) {
+	var _p3 = _p2;
+	return _debois$elm_mdl$Material_Options$cs(
+		A2(_elm_lang$core$Basics_ops['++'], 'mdl-color--', _p3._0));
+};
+var _debois$elm_mdl$Material_Color$shadeName = function (shade) {
+	var _p4 = shade;
+	switch (_p4.ctor) {
+		case 'S50':
+			return '50';
+		case 'S100':
+			return '100';
+		case 'S200':
+			return '200';
+		case 'S300':
+			return '300';
+		case 'S400':
+			return '400';
+		case 'S500':
+			return '500';
+		case 'S600':
+			return '600';
+		case 'S700':
+			return '700';
+		case 'S800':
+			return '800';
+		case 'S900':
+			return '900';
+		case 'A100':
+			return 'A100';
+		case 'A200':
+			return 'A200';
+		case 'A400':
+			return 'A400';
+		default:
+			return 'A700';
+	}
+};
+var _debois$elm_mdl$Material_Color$hueName = function (color) {
+	var _p5 = color;
+	switch (_p5.ctor) {
+		case 'Indigo':
+			return 'indigo';
+		case 'Blue':
+			return 'blue';
+		case 'LightBlue':
+			return 'light-blue';
+		case 'Cyan':
+			return 'cyan';
+		case 'Teal':
+			return 'teal';
+		case 'Green':
+			return 'green';
+		case 'LightGreen':
+			return 'light-green';
+		case 'Lime':
+			return 'lime';
+		case 'Yellow':
+			return 'yellow';
+		case 'Amber':
+			return 'amber';
+		case 'Orange':
+			return 'orange';
+		case 'Brown':
+			return 'brown';
+		case 'BlueGrey':
+			return 'blue-grey';
+		case 'Grey':
+			return 'grey';
+		case 'DeepOrange':
+			return 'deep-orange';
+		case 'Red':
+			return 'red';
+		case 'Pink':
+			return 'pink';
+		case 'Purple':
+			return 'purple';
+		default:
+			return 'deep-purple';
+	}
+};
+var _debois$elm_mdl$Material_Color$scheme = F2(
+	function (primary, accent) {
+		var q = _elm_lang$core$String$map(
+			function (x) {
+				return _elm_lang$core$Native_Utils.eq(
+					x,
+					_elm_lang$core$Native_Utils.chr('-')) ? _elm_lang$core$Native_Utils.chr('_') : x;
+			});
+		var cssFile = function () {
+			var _p6 = accent;
+			switch (_p6.ctor) {
+				case 'Grey':
+					return '';
+				case 'Brown':
+					return '';
+				case 'BlueGrey':
+					return '';
+				default:
+					return A2(
+						_elm_lang$core$Basics_ops['++'],
+						'.',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							q(
+								_debois$elm_mdl$Material_Color$hueName(primary)),
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'-',
+								q(
+									_debois$elm_mdl$Material_Color$hueName(accent)))));
+			}
+		}();
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			'material',
+			A2(_elm_lang$core$Basics_ops['++'], cssFile, '.min.css'));
+	});
+var _debois$elm_mdl$Material_Color$DeepPurple = {ctor: 'DeepPurple'};
+var _debois$elm_mdl$Material_Color$Purple = {ctor: 'Purple'};
+var _debois$elm_mdl$Material_Color$Pink = {ctor: 'Pink'};
+var _debois$elm_mdl$Material_Color$Red = {ctor: 'Red'};
+var _debois$elm_mdl$Material_Color$DeepOrange = {ctor: 'DeepOrange'};
+var _debois$elm_mdl$Material_Color$Grey = {ctor: 'Grey'};
+var _debois$elm_mdl$Material_Color$BlueGrey = {ctor: 'BlueGrey'};
+var _debois$elm_mdl$Material_Color$Brown = {ctor: 'Brown'};
+var _debois$elm_mdl$Material_Color$Orange = {ctor: 'Orange'};
+var _debois$elm_mdl$Material_Color$Amber = {ctor: 'Amber'};
+var _debois$elm_mdl$Material_Color$Yellow = {ctor: 'Yellow'};
+var _debois$elm_mdl$Material_Color$Lime = {ctor: 'Lime'};
+var _debois$elm_mdl$Material_Color$LightGreen = {ctor: 'LightGreen'};
+var _debois$elm_mdl$Material_Color$Green = {ctor: 'Green'};
+var _debois$elm_mdl$Material_Color$Teal = {ctor: 'Teal'};
+var _debois$elm_mdl$Material_Color$Cyan = {ctor: 'Cyan'};
+var _debois$elm_mdl$Material_Color$LightBlue = {ctor: 'LightBlue'};
+var _debois$elm_mdl$Material_Color$Blue = {ctor: 'Blue'};
+var _debois$elm_mdl$Material_Color$Indigo = {ctor: 'Indigo'};
+var _debois$elm_mdl$Material_Color$hues = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		[_debois$elm_mdl$Material_Color$Indigo, _debois$elm_mdl$Material_Color$Blue, _debois$elm_mdl$Material_Color$LightBlue, _debois$elm_mdl$Material_Color$Cyan, _debois$elm_mdl$Material_Color$Teal, _debois$elm_mdl$Material_Color$Green, _debois$elm_mdl$Material_Color$LightGreen, _debois$elm_mdl$Material_Color$Lime, _debois$elm_mdl$Material_Color$Yellow, _debois$elm_mdl$Material_Color$Amber, _debois$elm_mdl$Material_Color$Orange, _debois$elm_mdl$Material_Color$Brown, _debois$elm_mdl$Material_Color$BlueGrey, _debois$elm_mdl$Material_Color$Grey, _debois$elm_mdl$Material_Color$DeepOrange, _debois$elm_mdl$Material_Color$Red, _debois$elm_mdl$Material_Color$Pink, _debois$elm_mdl$Material_Color$Purple, _debois$elm_mdl$Material_Color$DeepPurple]));
+var _debois$elm_mdl$Material_Color$accentHues = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		[_debois$elm_mdl$Material_Color$Indigo, _debois$elm_mdl$Material_Color$Blue, _debois$elm_mdl$Material_Color$LightBlue, _debois$elm_mdl$Material_Color$Cyan, _debois$elm_mdl$Material_Color$Teal, _debois$elm_mdl$Material_Color$Green, _debois$elm_mdl$Material_Color$LightGreen, _debois$elm_mdl$Material_Color$Lime, _debois$elm_mdl$Material_Color$Yellow, _debois$elm_mdl$Material_Color$Amber, _debois$elm_mdl$Material_Color$Orange, _debois$elm_mdl$Material_Color$DeepOrange, _debois$elm_mdl$Material_Color$Red, _debois$elm_mdl$Material_Color$Pink, _debois$elm_mdl$Material_Color$Purple, _debois$elm_mdl$Material_Color$DeepPurple]));
+var _debois$elm_mdl$Material_Color$A700 = {ctor: 'A700'};
+var _debois$elm_mdl$Material_Color$A400 = {ctor: 'A400'};
+var _debois$elm_mdl$Material_Color$A200 = {ctor: 'A200'};
+var _debois$elm_mdl$Material_Color$A100 = {ctor: 'A100'};
+var _debois$elm_mdl$Material_Color$S900 = {ctor: 'S900'};
+var _debois$elm_mdl$Material_Color$S800 = {ctor: 'S800'};
+var _debois$elm_mdl$Material_Color$S700 = {ctor: 'S700'};
+var _debois$elm_mdl$Material_Color$S600 = {ctor: 'S600'};
+var _debois$elm_mdl$Material_Color$S500 = {ctor: 'S500'};
+var _debois$elm_mdl$Material_Color$S400 = {ctor: 'S400'};
+var _debois$elm_mdl$Material_Color$S300 = {ctor: 'S300'};
+var _debois$elm_mdl$Material_Color$S200 = {ctor: 'S200'};
+var _debois$elm_mdl$Material_Color$S100 = {ctor: 'S100'};
+var _debois$elm_mdl$Material_Color$S50 = {ctor: 'S50'};
+var _debois$elm_mdl$Material_Color$shades = _elm_lang$core$Array$fromList(
+	_elm_lang$core$Native_List.fromArray(
+		[_debois$elm_mdl$Material_Color$S50, _debois$elm_mdl$Material_Color$S100, _debois$elm_mdl$Material_Color$S200, _debois$elm_mdl$Material_Color$S300, _debois$elm_mdl$Material_Color$S400, _debois$elm_mdl$Material_Color$S500, _debois$elm_mdl$Material_Color$S600, _debois$elm_mdl$Material_Color$S700, _debois$elm_mdl$Material_Color$S800, _debois$elm_mdl$Material_Color$S900, _debois$elm_mdl$Material_Color$A100, _debois$elm_mdl$Material_Color$A200, _debois$elm_mdl$Material_Color$A400, _debois$elm_mdl$Material_Color$A700]));
+var _debois$elm_mdl$Material_Color$C = function (a) {
+	return {ctor: 'C', _0: a};
+};
+var _debois$elm_mdl$Material_Color$color = F2(
+	function (hue, shade) {
+		return _debois$elm_mdl$Material_Color$C(
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_debois$elm_mdl$Material_Color$hueName(hue),
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'-',
+					_debois$elm_mdl$Material_Color$shadeName(shade))));
+	});
+var _debois$elm_mdl$Material_Color$white = _debois$elm_mdl$Material_Color$C('white');
+var _debois$elm_mdl$Material_Color$black = _debois$elm_mdl$Material_Color$C('black');
+var _debois$elm_mdl$Material_Color$primary = _debois$elm_mdl$Material_Color$C('primary');
+var _debois$elm_mdl$Material_Color$primaryDark = _debois$elm_mdl$Material_Color$C('primary-dark');
+var _debois$elm_mdl$Material_Color$primaryContrast = _debois$elm_mdl$Material_Color$C('primary-contrast');
+var _debois$elm_mdl$Material_Color$accent = _debois$elm_mdl$Material_Color$C('accent');
+var _debois$elm_mdl$Material_Color$accentContrast = _debois$elm_mdl$Material_Color$C('accent-contrast');
 var _debois$elm_mdl$Material_Elevation$transition = function (duration) {
 	return A2(
 		_debois$elm_mdl$Material_Options$css,
@@ -13295,6 +13481,55 @@ var _debois$elm_mdl$Material_Grid$cell = F2(
 var _debois$elm_mdl$Material_Grid$Bottom = {ctor: 'Bottom'};
 var _debois$elm_mdl$Material_Grid$Middle = {ctor: 'Middle'};
 var _debois$elm_mdl$Material_Grid$Top = {ctor: 'Top'};
+var _debois$elm_mdl$Material_Scheme$scheme = F2(
+	function (primary, accent) {
+		return A2(
+			_elm_lang$core$String$join,
+			'\n',
+			A2(
+				_elm_lang$core$List$map,
+				function (url) {
+					return A2(
+						_elm_lang$core$Basics_ops['++'],
+						'@import url(',
+						A2(_elm_lang$core$Basics_ops['++'], url, ');'));
+				},
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$core$Basics_ops['++'],
+						'https://code.getmdl.io/1.1.3/',
+						A2(_debois$elm_mdl$Material_Color$scheme, primary, accent)),
+						'https://fonts.googleapis.com/icon?family=Material+Icons',
+						'https://fonts.googleapis.com/css?family=Roboto:400,300,500|Roboto+Mono|Roboto+Condensed:400,700&subset=latin,latin-ext'
+					])));
+	});
+var _debois$elm_mdl$Material_Scheme$topWithScheme = F3(
+	function (primary, accent, content) {
+		return A2(
+			_elm_lang$html$Html$div,
+			_elm_lang$core$Native_List.fromArray(
+				[]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					A3(
+					_elm_lang$html$Html$node,
+					'style',
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html_Attributes$type$('text/css')
+						]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(
+							A2(_debois$elm_mdl$Material_Scheme$scheme, primary, accent))
+						])),
+					content
+				]));
+	});
+var _debois$elm_mdl$Material_Scheme$top = function (content) {
+	return A3(_debois$elm_mdl$Material_Scheme$topWithScheme, _debois$elm_mdl$Material_Color$Grey, _debois$elm_mdl$Material_Color$Grey, content);
+};
 var _debois$elm_mdl$Material_Slider$floatVal = A2(
 	_elm_lang$core$Json_Decode$at,
 	_elm_lang$core$Native_List.fromArray(
@@ -14108,6 +14343,352 @@ var _elm_lang$keyboard$Keyboard$subMap = F2(
 			});
 	});
 _elm_lang$core$Native_Platform.effectManagers['Keyboard'] = {pkg: 'elm-lang/keyboard', init: _elm_lang$keyboard$Keyboard$init, onEffects: _elm_lang$keyboard$Keyboard$onEffects, onSelfMsg: _elm_lang$keyboard$Keyboard$onSelfMsg, tag: 'sub', subMap: _elm_lang$keyboard$Keyboard$subMap};
+var _elm_lang$svg$Svg$text = _elm_lang$virtual_dom$VirtualDom$text;
+var _elm_lang$svg$Svg$svgNamespace = A2(
+	_elm_lang$virtual_dom$VirtualDom$property,
+	'namespace',
+	_elm_lang$core$Json_Encode$string('http://www.w3.org/2000/svg'));
+var _elm_lang$svg$Svg$node = F3(
+	function (name, attributes, children) {
+		return A3(
+			_elm_lang$virtual_dom$VirtualDom$node,
+			name,
+			A2(_elm_lang$core$List_ops['::'], _elm_lang$svg$Svg$svgNamespace, attributes),
+			children);
+	});
+var _elm_lang$svg$Svg$svg = _elm_lang$svg$Svg$node('svg');
+var _elm_lang$svg$Svg$foreignObject = _elm_lang$svg$Svg$node('foreignObject');
+var _elm_lang$svg$Svg$animate = _elm_lang$svg$Svg$node('animate');
+var _elm_lang$svg$Svg$animateColor = _elm_lang$svg$Svg$node('animateColor');
+var _elm_lang$svg$Svg$animateMotion = _elm_lang$svg$Svg$node('animateMotion');
+var _elm_lang$svg$Svg$animateTransform = _elm_lang$svg$Svg$node('animateTransform');
+var _elm_lang$svg$Svg$mpath = _elm_lang$svg$Svg$node('mpath');
+var _elm_lang$svg$Svg$set = _elm_lang$svg$Svg$node('set');
+var _elm_lang$svg$Svg$a = _elm_lang$svg$Svg$node('a');
+var _elm_lang$svg$Svg$defs = _elm_lang$svg$Svg$node('defs');
+var _elm_lang$svg$Svg$g = _elm_lang$svg$Svg$node('g');
+var _elm_lang$svg$Svg$marker = _elm_lang$svg$Svg$node('marker');
+var _elm_lang$svg$Svg$mask = _elm_lang$svg$Svg$node('mask');
+var _elm_lang$svg$Svg$missingGlyph = _elm_lang$svg$Svg$node('missingGlyph');
+var _elm_lang$svg$Svg$pattern = _elm_lang$svg$Svg$node('pattern');
+var _elm_lang$svg$Svg$switch = _elm_lang$svg$Svg$node('switch');
+var _elm_lang$svg$Svg$symbol = _elm_lang$svg$Svg$node('symbol');
+var _elm_lang$svg$Svg$desc = _elm_lang$svg$Svg$node('desc');
+var _elm_lang$svg$Svg$metadata = _elm_lang$svg$Svg$node('metadata');
+var _elm_lang$svg$Svg$title = _elm_lang$svg$Svg$node('title');
+var _elm_lang$svg$Svg$feBlend = _elm_lang$svg$Svg$node('feBlend');
+var _elm_lang$svg$Svg$feColorMatrix = _elm_lang$svg$Svg$node('feColorMatrix');
+var _elm_lang$svg$Svg$feComponentTransfer = _elm_lang$svg$Svg$node('feComponentTransfer');
+var _elm_lang$svg$Svg$feComposite = _elm_lang$svg$Svg$node('feComposite');
+var _elm_lang$svg$Svg$feConvolveMatrix = _elm_lang$svg$Svg$node('feConvolveMatrix');
+var _elm_lang$svg$Svg$feDiffuseLighting = _elm_lang$svg$Svg$node('feDiffuseLighting');
+var _elm_lang$svg$Svg$feDisplacementMap = _elm_lang$svg$Svg$node('feDisplacementMap');
+var _elm_lang$svg$Svg$feFlood = _elm_lang$svg$Svg$node('feFlood');
+var _elm_lang$svg$Svg$feFuncA = _elm_lang$svg$Svg$node('feFuncA');
+var _elm_lang$svg$Svg$feFuncB = _elm_lang$svg$Svg$node('feFuncB');
+var _elm_lang$svg$Svg$feFuncG = _elm_lang$svg$Svg$node('feFuncG');
+var _elm_lang$svg$Svg$feFuncR = _elm_lang$svg$Svg$node('feFuncR');
+var _elm_lang$svg$Svg$feGaussianBlur = _elm_lang$svg$Svg$node('feGaussianBlur');
+var _elm_lang$svg$Svg$feImage = _elm_lang$svg$Svg$node('feImage');
+var _elm_lang$svg$Svg$feMerge = _elm_lang$svg$Svg$node('feMerge');
+var _elm_lang$svg$Svg$feMergeNode = _elm_lang$svg$Svg$node('feMergeNode');
+var _elm_lang$svg$Svg$feMorphology = _elm_lang$svg$Svg$node('feMorphology');
+var _elm_lang$svg$Svg$feOffset = _elm_lang$svg$Svg$node('feOffset');
+var _elm_lang$svg$Svg$feSpecularLighting = _elm_lang$svg$Svg$node('feSpecularLighting');
+var _elm_lang$svg$Svg$feTile = _elm_lang$svg$Svg$node('feTile');
+var _elm_lang$svg$Svg$feTurbulence = _elm_lang$svg$Svg$node('feTurbulence');
+var _elm_lang$svg$Svg$font = _elm_lang$svg$Svg$node('font');
+var _elm_lang$svg$Svg$fontFace = _elm_lang$svg$Svg$node('fontFace');
+var _elm_lang$svg$Svg$fontFaceFormat = _elm_lang$svg$Svg$node('fontFaceFormat');
+var _elm_lang$svg$Svg$fontFaceName = _elm_lang$svg$Svg$node('fontFaceName');
+var _elm_lang$svg$Svg$fontFaceSrc = _elm_lang$svg$Svg$node('fontFaceSrc');
+var _elm_lang$svg$Svg$fontFaceUri = _elm_lang$svg$Svg$node('fontFaceUri');
+var _elm_lang$svg$Svg$hkern = _elm_lang$svg$Svg$node('hkern');
+var _elm_lang$svg$Svg$vkern = _elm_lang$svg$Svg$node('vkern');
+var _elm_lang$svg$Svg$linearGradient = _elm_lang$svg$Svg$node('linearGradient');
+var _elm_lang$svg$Svg$radialGradient = _elm_lang$svg$Svg$node('radialGradient');
+var _elm_lang$svg$Svg$stop = _elm_lang$svg$Svg$node('stop');
+var _elm_lang$svg$Svg$circle = _elm_lang$svg$Svg$node('circle');
+var _elm_lang$svg$Svg$ellipse = _elm_lang$svg$Svg$node('ellipse');
+var _elm_lang$svg$Svg$image = _elm_lang$svg$Svg$node('image');
+var _elm_lang$svg$Svg$line = _elm_lang$svg$Svg$node('line');
+var _elm_lang$svg$Svg$path = _elm_lang$svg$Svg$node('path');
+var _elm_lang$svg$Svg$polygon = _elm_lang$svg$Svg$node('polygon');
+var _elm_lang$svg$Svg$polyline = _elm_lang$svg$Svg$node('polyline');
+var _elm_lang$svg$Svg$rect = _elm_lang$svg$Svg$node('rect');
+var _elm_lang$svg$Svg$use = _elm_lang$svg$Svg$node('use');
+var _elm_lang$svg$Svg$feDistantLight = _elm_lang$svg$Svg$node('feDistantLight');
+var _elm_lang$svg$Svg$fePointLight = _elm_lang$svg$Svg$node('fePointLight');
+var _elm_lang$svg$Svg$feSpotLight = _elm_lang$svg$Svg$node('feSpotLight');
+var _elm_lang$svg$Svg$altGlyph = _elm_lang$svg$Svg$node('altGlyph');
+var _elm_lang$svg$Svg$altGlyphDef = _elm_lang$svg$Svg$node('altGlyphDef');
+var _elm_lang$svg$Svg$altGlyphItem = _elm_lang$svg$Svg$node('altGlyphItem');
+var _elm_lang$svg$Svg$glyph = _elm_lang$svg$Svg$node('glyph');
+var _elm_lang$svg$Svg$glyphRef = _elm_lang$svg$Svg$node('glyphRef');
+var _elm_lang$svg$Svg$textPath = _elm_lang$svg$Svg$node('textPath');
+var _elm_lang$svg$Svg$text$ = _elm_lang$svg$Svg$node('text');
+var _elm_lang$svg$Svg$tref = _elm_lang$svg$Svg$node('tref');
+var _elm_lang$svg$Svg$tspan = _elm_lang$svg$Svg$node('tspan');
+var _elm_lang$svg$Svg$clipPath = _elm_lang$svg$Svg$node('clipPath');
+var _elm_lang$svg$Svg$colorProfile = _elm_lang$svg$Svg$node('colorProfile');
+var _elm_lang$svg$Svg$cursor = _elm_lang$svg$Svg$node('cursor');
+var _elm_lang$svg$Svg$filter = _elm_lang$svg$Svg$node('filter');
+var _elm_lang$svg$Svg$script = _elm_lang$svg$Svg$node('script');
+var _elm_lang$svg$Svg$style = _elm_lang$svg$Svg$node('style');
+var _elm_lang$svg$Svg$view = _elm_lang$svg$Svg$node('view');
+var _elm_lang$svg$Svg_Attributes$writingMode = _elm_lang$virtual_dom$VirtualDom$attribute('writing-mode');
+var _elm_lang$svg$Svg_Attributes$wordSpacing = _elm_lang$virtual_dom$VirtualDom$attribute('word-spacing');
+var _elm_lang$svg$Svg_Attributes$visibility = _elm_lang$virtual_dom$VirtualDom$attribute('visibility');
+var _elm_lang$svg$Svg_Attributes$unicodeBidi = _elm_lang$virtual_dom$VirtualDom$attribute('unicode-bidi');
+var _elm_lang$svg$Svg_Attributes$textRendering = _elm_lang$virtual_dom$VirtualDom$attribute('text-rendering');
+var _elm_lang$svg$Svg_Attributes$textDecoration = _elm_lang$virtual_dom$VirtualDom$attribute('text-decoration');
+var _elm_lang$svg$Svg_Attributes$textAnchor = _elm_lang$virtual_dom$VirtualDom$attribute('text-anchor');
+var _elm_lang$svg$Svg_Attributes$stroke = _elm_lang$virtual_dom$VirtualDom$attribute('stroke');
+var _elm_lang$svg$Svg_Attributes$strokeWidth = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-width');
+var _elm_lang$svg$Svg_Attributes$strokeOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-opacity');
+var _elm_lang$svg$Svg_Attributes$strokeMiterlimit = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-miterlimit');
+var _elm_lang$svg$Svg_Attributes$strokeLinejoin = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-linejoin');
+var _elm_lang$svg$Svg_Attributes$strokeLinecap = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-linecap');
+var _elm_lang$svg$Svg_Attributes$strokeDashoffset = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-dashoffset');
+var _elm_lang$svg$Svg_Attributes$strokeDasharray = _elm_lang$virtual_dom$VirtualDom$attribute('stroke-dasharray');
+var _elm_lang$svg$Svg_Attributes$stopOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('stop-opacity');
+var _elm_lang$svg$Svg_Attributes$stopColor = _elm_lang$virtual_dom$VirtualDom$attribute('stop-color');
+var _elm_lang$svg$Svg_Attributes$shapeRendering = _elm_lang$virtual_dom$VirtualDom$attribute('shape-rendering');
+var _elm_lang$svg$Svg_Attributes$pointerEvents = _elm_lang$virtual_dom$VirtualDom$attribute('pointer-events');
+var _elm_lang$svg$Svg_Attributes$overflow = _elm_lang$virtual_dom$VirtualDom$attribute('overflow');
+var _elm_lang$svg$Svg_Attributes$opacity = _elm_lang$virtual_dom$VirtualDom$attribute('opacity');
+var _elm_lang$svg$Svg_Attributes$mask = _elm_lang$virtual_dom$VirtualDom$attribute('mask');
+var _elm_lang$svg$Svg_Attributes$markerStart = _elm_lang$virtual_dom$VirtualDom$attribute('marker-start');
+var _elm_lang$svg$Svg_Attributes$markerMid = _elm_lang$virtual_dom$VirtualDom$attribute('marker-mid');
+var _elm_lang$svg$Svg_Attributes$markerEnd = _elm_lang$virtual_dom$VirtualDom$attribute('marker-end');
+var _elm_lang$svg$Svg_Attributes$lightingColor = _elm_lang$virtual_dom$VirtualDom$attribute('lighting-color');
+var _elm_lang$svg$Svg_Attributes$letterSpacing = _elm_lang$virtual_dom$VirtualDom$attribute('letter-spacing');
+var _elm_lang$svg$Svg_Attributes$kerning = _elm_lang$virtual_dom$VirtualDom$attribute('kerning');
+var _elm_lang$svg$Svg_Attributes$imageRendering = _elm_lang$virtual_dom$VirtualDom$attribute('image-rendering');
+var _elm_lang$svg$Svg_Attributes$glyphOrientationVertical = _elm_lang$virtual_dom$VirtualDom$attribute('glyph-orientation-vertical');
+var _elm_lang$svg$Svg_Attributes$glyphOrientationHorizontal = _elm_lang$virtual_dom$VirtualDom$attribute('glyph-orientation-horizontal');
+var _elm_lang$svg$Svg_Attributes$fontWeight = _elm_lang$virtual_dom$VirtualDom$attribute('font-weight');
+var _elm_lang$svg$Svg_Attributes$fontVariant = _elm_lang$virtual_dom$VirtualDom$attribute('font-variant');
+var _elm_lang$svg$Svg_Attributes$fontStyle = _elm_lang$virtual_dom$VirtualDom$attribute('font-style');
+var _elm_lang$svg$Svg_Attributes$fontStretch = _elm_lang$virtual_dom$VirtualDom$attribute('font-stretch');
+var _elm_lang$svg$Svg_Attributes$fontSize = _elm_lang$virtual_dom$VirtualDom$attribute('font-size');
+var _elm_lang$svg$Svg_Attributes$fontSizeAdjust = _elm_lang$virtual_dom$VirtualDom$attribute('font-size-adjust');
+var _elm_lang$svg$Svg_Attributes$fontFamily = _elm_lang$virtual_dom$VirtualDom$attribute('font-family');
+var _elm_lang$svg$Svg_Attributes$floodOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('flood-opacity');
+var _elm_lang$svg$Svg_Attributes$floodColor = _elm_lang$virtual_dom$VirtualDom$attribute('flood-color');
+var _elm_lang$svg$Svg_Attributes$filter = _elm_lang$virtual_dom$VirtualDom$attribute('filter');
+var _elm_lang$svg$Svg_Attributes$fill = _elm_lang$virtual_dom$VirtualDom$attribute('fill');
+var _elm_lang$svg$Svg_Attributes$fillRule = _elm_lang$virtual_dom$VirtualDom$attribute('fill-rule');
+var _elm_lang$svg$Svg_Attributes$fillOpacity = _elm_lang$virtual_dom$VirtualDom$attribute('fill-opacity');
+var _elm_lang$svg$Svg_Attributes$enableBackground = _elm_lang$virtual_dom$VirtualDom$attribute('enable-background');
+var _elm_lang$svg$Svg_Attributes$dominantBaseline = _elm_lang$virtual_dom$VirtualDom$attribute('dominant-baseline');
+var _elm_lang$svg$Svg_Attributes$display = _elm_lang$virtual_dom$VirtualDom$attribute('display');
+var _elm_lang$svg$Svg_Attributes$direction = _elm_lang$virtual_dom$VirtualDom$attribute('direction');
+var _elm_lang$svg$Svg_Attributes$cursor = _elm_lang$virtual_dom$VirtualDom$attribute('cursor');
+var _elm_lang$svg$Svg_Attributes$color = _elm_lang$virtual_dom$VirtualDom$attribute('color');
+var _elm_lang$svg$Svg_Attributes$colorRendering = _elm_lang$virtual_dom$VirtualDom$attribute('color-rendering');
+var _elm_lang$svg$Svg_Attributes$colorProfile = _elm_lang$virtual_dom$VirtualDom$attribute('color-profile');
+var _elm_lang$svg$Svg_Attributes$colorInterpolation = _elm_lang$virtual_dom$VirtualDom$attribute('color-interpolation');
+var _elm_lang$svg$Svg_Attributes$colorInterpolationFilters = _elm_lang$virtual_dom$VirtualDom$attribute('color-interpolation-filters');
+var _elm_lang$svg$Svg_Attributes$clip = _elm_lang$virtual_dom$VirtualDom$attribute('clip');
+var _elm_lang$svg$Svg_Attributes$clipRule = _elm_lang$virtual_dom$VirtualDom$attribute('clip-rule');
+var _elm_lang$svg$Svg_Attributes$clipPath = _elm_lang$virtual_dom$VirtualDom$attribute('clip-path');
+var _elm_lang$svg$Svg_Attributes$baselineShift = _elm_lang$virtual_dom$VirtualDom$attribute('baseline-shift');
+var _elm_lang$svg$Svg_Attributes$alignmentBaseline = _elm_lang$virtual_dom$VirtualDom$attribute('alignment-baseline');
+var _elm_lang$svg$Svg_Attributes$zoomAndPan = _elm_lang$virtual_dom$VirtualDom$attribute('zoomAndPan');
+var _elm_lang$svg$Svg_Attributes$z = _elm_lang$virtual_dom$VirtualDom$attribute('z');
+var _elm_lang$svg$Svg_Attributes$yChannelSelector = _elm_lang$virtual_dom$VirtualDom$attribute('yChannelSelector');
+var _elm_lang$svg$Svg_Attributes$y2 = _elm_lang$virtual_dom$VirtualDom$attribute('y2');
+var _elm_lang$svg$Svg_Attributes$y1 = _elm_lang$virtual_dom$VirtualDom$attribute('y1');
+var _elm_lang$svg$Svg_Attributes$y = _elm_lang$virtual_dom$VirtualDom$attribute('y');
+var _elm_lang$svg$Svg_Attributes$xmlSpace = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:space');
+var _elm_lang$svg$Svg_Attributes$xmlLang = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:lang');
+var _elm_lang$svg$Svg_Attributes$xmlBase = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/XML/1998/namespace', 'xml:base');
+var _elm_lang$svg$Svg_Attributes$xlinkType = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:type');
+var _elm_lang$svg$Svg_Attributes$xlinkTitle = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:title');
+var _elm_lang$svg$Svg_Attributes$xlinkShow = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:show');
+var _elm_lang$svg$Svg_Attributes$xlinkRole = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:role');
+var _elm_lang$svg$Svg_Attributes$xlinkHref = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:href');
+var _elm_lang$svg$Svg_Attributes$xlinkArcrole = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:arcrole');
+var _elm_lang$svg$Svg_Attributes$xlinkActuate = A2(_elm_lang$virtual_dom$VirtualDom$attributeNS, 'http://www.w3.org/1999/xlink', 'xlink:actuate');
+var _elm_lang$svg$Svg_Attributes$xChannelSelector = _elm_lang$virtual_dom$VirtualDom$attribute('xChannelSelector');
+var _elm_lang$svg$Svg_Attributes$x2 = _elm_lang$virtual_dom$VirtualDom$attribute('x2');
+var _elm_lang$svg$Svg_Attributes$x1 = _elm_lang$virtual_dom$VirtualDom$attribute('x1');
+var _elm_lang$svg$Svg_Attributes$xHeight = _elm_lang$virtual_dom$VirtualDom$attribute('x-height');
+var _elm_lang$svg$Svg_Attributes$x = _elm_lang$virtual_dom$VirtualDom$attribute('x');
+var _elm_lang$svg$Svg_Attributes$widths = _elm_lang$virtual_dom$VirtualDom$attribute('widths');
+var _elm_lang$svg$Svg_Attributes$width = _elm_lang$virtual_dom$VirtualDom$attribute('width');
+var _elm_lang$svg$Svg_Attributes$viewTarget = _elm_lang$virtual_dom$VirtualDom$attribute('viewTarget');
+var _elm_lang$svg$Svg_Attributes$viewBox = _elm_lang$virtual_dom$VirtualDom$attribute('viewBox');
+var _elm_lang$svg$Svg_Attributes$vertOriginY = _elm_lang$virtual_dom$VirtualDom$attribute('vert-origin-y');
+var _elm_lang$svg$Svg_Attributes$vertOriginX = _elm_lang$virtual_dom$VirtualDom$attribute('vert-origin-x');
+var _elm_lang$svg$Svg_Attributes$vertAdvY = _elm_lang$virtual_dom$VirtualDom$attribute('vert-adv-y');
+var _elm_lang$svg$Svg_Attributes$version = _elm_lang$virtual_dom$VirtualDom$attribute('version');
+var _elm_lang$svg$Svg_Attributes$values = _elm_lang$virtual_dom$VirtualDom$attribute('values');
+var _elm_lang$svg$Svg_Attributes$vMathematical = _elm_lang$virtual_dom$VirtualDom$attribute('v-mathematical');
+var _elm_lang$svg$Svg_Attributes$vIdeographic = _elm_lang$virtual_dom$VirtualDom$attribute('v-ideographic');
+var _elm_lang$svg$Svg_Attributes$vHanging = _elm_lang$virtual_dom$VirtualDom$attribute('v-hanging');
+var _elm_lang$svg$Svg_Attributes$vAlphabetic = _elm_lang$virtual_dom$VirtualDom$attribute('v-alphabetic');
+var _elm_lang$svg$Svg_Attributes$unitsPerEm = _elm_lang$virtual_dom$VirtualDom$attribute('units-per-em');
+var _elm_lang$svg$Svg_Attributes$unicodeRange = _elm_lang$virtual_dom$VirtualDom$attribute('unicode-range');
+var _elm_lang$svg$Svg_Attributes$unicode = _elm_lang$virtual_dom$VirtualDom$attribute('unicode');
+var _elm_lang$svg$Svg_Attributes$underlineThickness = _elm_lang$virtual_dom$VirtualDom$attribute('underline-thickness');
+var _elm_lang$svg$Svg_Attributes$underlinePosition = _elm_lang$virtual_dom$VirtualDom$attribute('underline-position');
+var _elm_lang$svg$Svg_Attributes$u2 = _elm_lang$virtual_dom$VirtualDom$attribute('u2');
+var _elm_lang$svg$Svg_Attributes$u1 = _elm_lang$virtual_dom$VirtualDom$attribute('u1');
+var _elm_lang$svg$Svg_Attributes$type$ = _elm_lang$virtual_dom$VirtualDom$attribute('type');
+var _elm_lang$svg$Svg_Attributes$transform = _elm_lang$virtual_dom$VirtualDom$attribute('transform');
+var _elm_lang$svg$Svg_Attributes$to = _elm_lang$virtual_dom$VirtualDom$attribute('to');
+var _elm_lang$svg$Svg_Attributes$title = _elm_lang$virtual_dom$VirtualDom$attribute('title');
+var _elm_lang$svg$Svg_Attributes$textLength = _elm_lang$virtual_dom$VirtualDom$attribute('textLength');
+var _elm_lang$svg$Svg_Attributes$targetY = _elm_lang$virtual_dom$VirtualDom$attribute('targetY');
+var _elm_lang$svg$Svg_Attributes$targetX = _elm_lang$virtual_dom$VirtualDom$attribute('targetX');
+var _elm_lang$svg$Svg_Attributes$target = _elm_lang$virtual_dom$VirtualDom$attribute('target');
+var _elm_lang$svg$Svg_Attributes$tableValues = _elm_lang$virtual_dom$VirtualDom$attribute('tableValues');
+var _elm_lang$svg$Svg_Attributes$systemLanguage = _elm_lang$virtual_dom$VirtualDom$attribute('systemLanguage');
+var _elm_lang$svg$Svg_Attributes$surfaceScale = _elm_lang$virtual_dom$VirtualDom$attribute('surfaceScale');
+var _elm_lang$svg$Svg_Attributes$style = _elm_lang$virtual_dom$VirtualDom$attribute('style');
+var _elm_lang$svg$Svg_Attributes$string = _elm_lang$virtual_dom$VirtualDom$attribute('string');
+var _elm_lang$svg$Svg_Attributes$strikethroughThickness = _elm_lang$virtual_dom$VirtualDom$attribute('strikethrough-thickness');
+var _elm_lang$svg$Svg_Attributes$strikethroughPosition = _elm_lang$virtual_dom$VirtualDom$attribute('strikethrough-position');
+var _elm_lang$svg$Svg_Attributes$stitchTiles = _elm_lang$virtual_dom$VirtualDom$attribute('stitchTiles');
+var _elm_lang$svg$Svg_Attributes$stemv = _elm_lang$virtual_dom$VirtualDom$attribute('stemv');
+var _elm_lang$svg$Svg_Attributes$stemh = _elm_lang$virtual_dom$VirtualDom$attribute('stemh');
+var _elm_lang$svg$Svg_Attributes$stdDeviation = _elm_lang$virtual_dom$VirtualDom$attribute('stdDeviation');
+var _elm_lang$svg$Svg_Attributes$startOffset = _elm_lang$virtual_dom$VirtualDom$attribute('startOffset');
+var _elm_lang$svg$Svg_Attributes$spreadMethod = _elm_lang$virtual_dom$VirtualDom$attribute('spreadMethod');
+var _elm_lang$svg$Svg_Attributes$speed = _elm_lang$virtual_dom$VirtualDom$attribute('speed');
+var _elm_lang$svg$Svg_Attributes$specularExponent = _elm_lang$virtual_dom$VirtualDom$attribute('specularExponent');
+var _elm_lang$svg$Svg_Attributes$specularConstant = _elm_lang$virtual_dom$VirtualDom$attribute('specularConstant');
+var _elm_lang$svg$Svg_Attributes$spacing = _elm_lang$virtual_dom$VirtualDom$attribute('spacing');
+var _elm_lang$svg$Svg_Attributes$slope = _elm_lang$virtual_dom$VirtualDom$attribute('slope');
+var _elm_lang$svg$Svg_Attributes$seed = _elm_lang$virtual_dom$VirtualDom$attribute('seed');
+var _elm_lang$svg$Svg_Attributes$scale = _elm_lang$virtual_dom$VirtualDom$attribute('scale');
+var _elm_lang$svg$Svg_Attributes$ry = _elm_lang$virtual_dom$VirtualDom$attribute('ry');
+var _elm_lang$svg$Svg_Attributes$rx = _elm_lang$virtual_dom$VirtualDom$attribute('rx');
+var _elm_lang$svg$Svg_Attributes$rotate = _elm_lang$virtual_dom$VirtualDom$attribute('rotate');
+var _elm_lang$svg$Svg_Attributes$result = _elm_lang$virtual_dom$VirtualDom$attribute('result');
+var _elm_lang$svg$Svg_Attributes$restart = _elm_lang$virtual_dom$VirtualDom$attribute('restart');
+var _elm_lang$svg$Svg_Attributes$requiredFeatures = _elm_lang$virtual_dom$VirtualDom$attribute('requiredFeatures');
+var _elm_lang$svg$Svg_Attributes$requiredExtensions = _elm_lang$virtual_dom$VirtualDom$attribute('requiredExtensions');
+var _elm_lang$svg$Svg_Attributes$repeatDur = _elm_lang$virtual_dom$VirtualDom$attribute('repeatDur');
+var _elm_lang$svg$Svg_Attributes$repeatCount = _elm_lang$virtual_dom$VirtualDom$attribute('repeatCount');
+var _elm_lang$svg$Svg_Attributes$renderingIntent = _elm_lang$virtual_dom$VirtualDom$attribute('rendering-intent');
+var _elm_lang$svg$Svg_Attributes$refY = _elm_lang$virtual_dom$VirtualDom$attribute('refY');
+var _elm_lang$svg$Svg_Attributes$refX = _elm_lang$virtual_dom$VirtualDom$attribute('refX');
+var _elm_lang$svg$Svg_Attributes$radius = _elm_lang$virtual_dom$VirtualDom$attribute('radius');
+var _elm_lang$svg$Svg_Attributes$r = _elm_lang$virtual_dom$VirtualDom$attribute('r');
+var _elm_lang$svg$Svg_Attributes$primitiveUnits = _elm_lang$virtual_dom$VirtualDom$attribute('primitiveUnits');
+var _elm_lang$svg$Svg_Attributes$preserveAspectRatio = _elm_lang$virtual_dom$VirtualDom$attribute('preserveAspectRatio');
+var _elm_lang$svg$Svg_Attributes$preserveAlpha = _elm_lang$virtual_dom$VirtualDom$attribute('preserveAlpha');
+var _elm_lang$svg$Svg_Attributes$pointsAtZ = _elm_lang$virtual_dom$VirtualDom$attribute('pointsAtZ');
+var _elm_lang$svg$Svg_Attributes$pointsAtY = _elm_lang$virtual_dom$VirtualDom$attribute('pointsAtY');
+var _elm_lang$svg$Svg_Attributes$pointsAtX = _elm_lang$virtual_dom$VirtualDom$attribute('pointsAtX');
+var _elm_lang$svg$Svg_Attributes$points = _elm_lang$virtual_dom$VirtualDom$attribute('points');
+var _elm_lang$svg$Svg_Attributes$pointOrder = _elm_lang$virtual_dom$VirtualDom$attribute('point-order');
+var _elm_lang$svg$Svg_Attributes$patternUnits = _elm_lang$virtual_dom$VirtualDom$attribute('patternUnits');
+var _elm_lang$svg$Svg_Attributes$patternTransform = _elm_lang$virtual_dom$VirtualDom$attribute('patternTransform');
+var _elm_lang$svg$Svg_Attributes$patternContentUnits = _elm_lang$virtual_dom$VirtualDom$attribute('patternContentUnits');
+var _elm_lang$svg$Svg_Attributes$pathLength = _elm_lang$virtual_dom$VirtualDom$attribute('pathLength');
+var _elm_lang$svg$Svg_Attributes$path = _elm_lang$virtual_dom$VirtualDom$attribute('path');
+var _elm_lang$svg$Svg_Attributes$panose1 = _elm_lang$virtual_dom$VirtualDom$attribute('panose-1');
+var _elm_lang$svg$Svg_Attributes$overlineThickness = _elm_lang$virtual_dom$VirtualDom$attribute('overline-thickness');
+var _elm_lang$svg$Svg_Attributes$overlinePosition = _elm_lang$virtual_dom$VirtualDom$attribute('overline-position');
+var _elm_lang$svg$Svg_Attributes$origin = _elm_lang$virtual_dom$VirtualDom$attribute('origin');
+var _elm_lang$svg$Svg_Attributes$orientation = _elm_lang$virtual_dom$VirtualDom$attribute('orientation');
+var _elm_lang$svg$Svg_Attributes$orient = _elm_lang$virtual_dom$VirtualDom$attribute('orient');
+var _elm_lang$svg$Svg_Attributes$order = _elm_lang$virtual_dom$VirtualDom$attribute('order');
+var _elm_lang$svg$Svg_Attributes$operator = _elm_lang$virtual_dom$VirtualDom$attribute('operator');
+var _elm_lang$svg$Svg_Attributes$offset = _elm_lang$virtual_dom$VirtualDom$attribute('offset');
+var _elm_lang$svg$Svg_Attributes$numOctaves = _elm_lang$virtual_dom$VirtualDom$attribute('numOctaves');
+var _elm_lang$svg$Svg_Attributes$name = _elm_lang$virtual_dom$VirtualDom$attribute('name');
+var _elm_lang$svg$Svg_Attributes$mode = _elm_lang$virtual_dom$VirtualDom$attribute('mode');
+var _elm_lang$svg$Svg_Attributes$min = _elm_lang$virtual_dom$VirtualDom$attribute('min');
+var _elm_lang$svg$Svg_Attributes$method = _elm_lang$virtual_dom$VirtualDom$attribute('method');
+var _elm_lang$svg$Svg_Attributes$media = _elm_lang$virtual_dom$VirtualDom$attribute('media');
+var _elm_lang$svg$Svg_Attributes$max = _elm_lang$virtual_dom$VirtualDom$attribute('max');
+var _elm_lang$svg$Svg_Attributes$mathematical = _elm_lang$virtual_dom$VirtualDom$attribute('mathematical');
+var _elm_lang$svg$Svg_Attributes$maskUnits = _elm_lang$virtual_dom$VirtualDom$attribute('maskUnits');
+var _elm_lang$svg$Svg_Attributes$maskContentUnits = _elm_lang$virtual_dom$VirtualDom$attribute('maskContentUnits');
+var _elm_lang$svg$Svg_Attributes$markerWidth = _elm_lang$virtual_dom$VirtualDom$attribute('markerWidth');
+var _elm_lang$svg$Svg_Attributes$markerUnits = _elm_lang$virtual_dom$VirtualDom$attribute('markerUnits');
+var _elm_lang$svg$Svg_Attributes$markerHeight = _elm_lang$virtual_dom$VirtualDom$attribute('markerHeight');
+var _elm_lang$svg$Svg_Attributes$local = _elm_lang$virtual_dom$VirtualDom$attribute('local');
+var _elm_lang$svg$Svg_Attributes$limitingConeAngle = _elm_lang$virtual_dom$VirtualDom$attribute('limitingConeAngle');
+var _elm_lang$svg$Svg_Attributes$lengthAdjust = _elm_lang$virtual_dom$VirtualDom$attribute('lengthAdjust');
+var _elm_lang$svg$Svg_Attributes$lang = _elm_lang$virtual_dom$VirtualDom$attribute('lang');
+var _elm_lang$svg$Svg_Attributes$keyTimes = _elm_lang$virtual_dom$VirtualDom$attribute('keyTimes');
+var _elm_lang$svg$Svg_Attributes$keySplines = _elm_lang$virtual_dom$VirtualDom$attribute('keySplines');
+var _elm_lang$svg$Svg_Attributes$keyPoints = _elm_lang$virtual_dom$VirtualDom$attribute('keyPoints');
+var _elm_lang$svg$Svg_Attributes$kernelUnitLength = _elm_lang$virtual_dom$VirtualDom$attribute('kernelUnitLength');
+var _elm_lang$svg$Svg_Attributes$kernelMatrix = _elm_lang$virtual_dom$VirtualDom$attribute('kernelMatrix');
+var _elm_lang$svg$Svg_Attributes$k4 = _elm_lang$virtual_dom$VirtualDom$attribute('k4');
+var _elm_lang$svg$Svg_Attributes$k3 = _elm_lang$virtual_dom$VirtualDom$attribute('k3');
+var _elm_lang$svg$Svg_Attributes$k2 = _elm_lang$virtual_dom$VirtualDom$attribute('k2');
+var _elm_lang$svg$Svg_Attributes$k1 = _elm_lang$virtual_dom$VirtualDom$attribute('k1');
+var _elm_lang$svg$Svg_Attributes$k = _elm_lang$virtual_dom$VirtualDom$attribute('k');
+var _elm_lang$svg$Svg_Attributes$intercept = _elm_lang$virtual_dom$VirtualDom$attribute('intercept');
+var _elm_lang$svg$Svg_Attributes$in2 = _elm_lang$virtual_dom$VirtualDom$attribute('in2');
+var _elm_lang$svg$Svg_Attributes$in$ = _elm_lang$virtual_dom$VirtualDom$attribute('in');
+var _elm_lang$svg$Svg_Attributes$ideographic = _elm_lang$virtual_dom$VirtualDom$attribute('ideographic');
+var _elm_lang$svg$Svg_Attributes$id = _elm_lang$virtual_dom$VirtualDom$attribute('id');
+var _elm_lang$svg$Svg_Attributes$horizOriginY = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-origin-y');
+var _elm_lang$svg$Svg_Attributes$horizOriginX = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-origin-x');
+var _elm_lang$svg$Svg_Attributes$horizAdvX = _elm_lang$virtual_dom$VirtualDom$attribute('horiz-adv-x');
+var _elm_lang$svg$Svg_Attributes$height = _elm_lang$virtual_dom$VirtualDom$attribute('height');
+var _elm_lang$svg$Svg_Attributes$hanging = _elm_lang$virtual_dom$VirtualDom$attribute('hanging');
+var _elm_lang$svg$Svg_Attributes$gradientUnits = _elm_lang$virtual_dom$VirtualDom$attribute('gradientUnits');
+var _elm_lang$svg$Svg_Attributes$gradientTransform = _elm_lang$virtual_dom$VirtualDom$attribute('gradientTransform');
+var _elm_lang$svg$Svg_Attributes$glyphRef = _elm_lang$virtual_dom$VirtualDom$attribute('glyphRef');
+var _elm_lang$svg$Svg_Attributes$glyphName = _elm_lang$virtual_dom$VirtualDom$attribute('glyph-name');
+var _elm_lang$svg$Svg_Attributes$g2 = _elm_lang$virtual_dom$VirtualDom$attribute('g2');
+var _elm_lang$svg$Svg_Attributes$g1 = _elm_lang$virtual_dom$VirtualDom$attribute('g1');
+var _elm_lang$svg$Svg_Attributes$fy = _elm_lang$virtual_dom$VirtualDom$attribute('fy');
+var _elm_lang$svg$Svg_Attributes$fx = _elm_lang$virtual_dom$VirtualDom$attribute('fx');
+var _elm_lang$svg$Svg_Attributes$from = _elm_lang$virtual_dom$VirtualDom$attribute('from');
+var _elm_lang$svg$Svg_Attributes$format = _elm_lang$virtual_dom$VirtualDom$attribute('format');
+var _elm_lang$svg$Svg_Attributes$filterUnits = _elm_lang$virtual_dom$VirtualDom$attribute('filterUnits');
+var _elm_lang$svg$Svg_Attributes$filterRes = _elm_lang$virtual_dom$VirtualDom$attribute('filterRes');
+var _elm_lang$svg$Svg_Attributes$externalResourcesRequired = _elm_lang$virtual_dom$VirtualDom$attribute('externalResourcesRequired');
+var _elm_lang$svg$Svg_Attributes$exponent = _elm_lang$virtual_dom$VirtualDom$attribute('exponent');
+var _elm_lang$svg$Svg_Attributes$end = _elm_lang$virtual_dom$VirtualDom$attribute('end');
+var _elm_lang$svg$Svg_Attributes$elevation = _elm_lang$virtual_dom$VirtualDom$attribute('elevation');
+var _elm_lang$svg$Svg_Attributes$edgeMode = _elm_lang$virtual_dom$VirtualDom$attribute('edgeMode');
+var _elm_lang$svg$Svg_Attributes$dy = _elm_lang$virtual_dom$VirtualDom$attribute('dy');
+var _elm_lang$svg$Svg_Attributes$dx = _elm_lang$virtual_dom$VirtualDom$attribute('dx');
+var _elm_lang$svg$Svg_Attributes$dur = _elm_lang$virtual_dom$VirtualDom$attribute('dur');
+var _elm_lang$svg$Svg_Attributes$divisor = _elm_lang$virtual_dom$VirtualDom$attribute('divisor');
+var _elm_lang$svg$Svg_Attributes$diffuseConstant = _elm_lang$virtual_dom$VirtualDom$attribute('diffuseConstant');
+var _elm_lang$svg$Svg_Attributes$descent = _elm_lang$virtual_dom$VirtualDom$attribute('descent');
+var _elm_lang$svg$Svg_Attributes$decelerate = _elm_lang$virtual_dom$VirtualDom$attribute('decelerate');
+var _elm_lang$svg$Svg_Attributes$d = _elm_lang$virtual_dom$VirtualDom$attribute('d');
+var _elm_lang$svg$Svg_Attributes$cy = _elm_lang$virtual_dom$VirtualDom$attribute('cy');
+var _elm_lang$svg$Svg_Attributes$cx = _elm_lang$virtual_dom$VirtualDom$attribute('cx');
+var _elm_lang$svg$Svg_Attributes$contentStyleType = _elm_lang$virtual_dom$VirtualDom$attribute('contentStyleType');
+var _elm_lang$svg$Svg_Attributes$contentScriptType = _elm_lang$virtual_dom$VirtualDom$attribute('contentScriptType');
+var _elm_lang$svg$Svg_Attributes$clipPathUnits = _elm_lang$virtual_dom$VirtualDom$attribute('clipPathUnits');
+var _elm_lang$svg$Svg_Attributes$class = _elm_lang$virtual_dom$VirtualDom$attribute('class');
+var _elm_lang$svg$Svg_Attributes$capHeight = _elm_lang$virtual_dom$VirtualDom$attribute('cap-height');
+var _elm_lang$svg$Svg_Attributes$calcMode = _elm_lang$virtual_dom$VirtualDom$attribute('calcMode');
+var _elm_lang$svg$Svg_Attributes$by = _elm_lang$virtual_dom$VirtualDom$attribute('by');
+var _elm_lang$svg$Svg_Attributes$bias = _elm_lang$virtual_dom$VirtualDom$attribute('bias');
+var _elm_lang$svg$Svg_Attributes$begin = _elm_lang$virtual_dom$VirtualDom$attribute('begin');
+var _elm_lang$svg$Svg_Attributes$bbox = _elm_lang$virtual_dom$VirtualDom$attribute('bbox');
+var _elm_lang$svg$Svg_Attributes$baseProfile = _elm_lang$virtual_dom$VirtualDom$attribute('baseProfile');
+var _elm_lang$svg$Svg_Attributes$baseFrequency = _elm_lang$virtual_dom$VirtualDom$attribute('baseFrequency');
+var _elm_lang$svg$Svg_Attributes$azimuth = _elm_lang$virtual_dom$VirtualDom$attribute('azimuth');
+var _elm_lang$svg$Svg_Attributes$autoReverse = _elm_lang$virtual_dom$VirtualDom$attribute('autoReverse');
+var _elm_lang$svg$Svg_Attributes$attributeType = _elm_lang$virtual_dom$VirtualDom$attribute('attributeType');
+var _elm_lang$svg$Svg_Attributes$attributeName = _elm_lang$virtual_dom$VirtualDom$attribute('attributeName');
+var _elm_lang$svg$Svg_Attributes$ascent = _elm_lang$virtual_dom$VirtualDom$attribute('ascent');
+var _elm_lang$svg$Svg_Attributes$arabicForm = _elm_lang$virtual_dom$VirtualDom$attribute('arabic-form');
+var _elm_lang$svg$Svg_Attributes$amplitude = _elm_lang$virtual_dom$VirtualDom$attribute('amplitude');
+var _elm_lang$svg$Svg_Attributes$allowReorder = _elm_lang$virtual_dom$VirtualDom$attribute('allowReorder');
+var _elm_lang$svg$Svg_Attributes$alphabetic = _elm_lang$virtual_dom$VirtualDom$attribute('alphabetic');
+var _elm_lang$svg$Svg_Attributes$additive = _elm_lang$virtual_dom$VirtualDom$attribute('additive');
+var _elm_lang$svg$Svg_Attributes$accumulate = _elm_lang$virtual_dom$VirtualDom$attribute('accumulate');
+var _elm_lang$svg$Svg_Attributes$accelerate = _elm_lang$virtual_dom$VirtualDom$attribute('accelerate');
+var _elm_lang$svg$Svg_Attributes$accentHeight = _elm_lang$virtual_dom$VirtualDom$attribute('accent-height');
 var _user$project$Types$Position = F2(
 	function (a, b) {
 		return {x: a, y: b};
@@ -14785,9 +15366,1488 @@ var _user$project$FormComponents$view = F2(
 						]))
 				]));
 	});
+var _user$project$View$style = function (h) {
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			A2(_debois$elm_mdl$Material_Options$css, 'text-sizing', 'border-box'),
+			A2(
+			_debois$elm_mdl$Material_Options$css,
+			'height',
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				_elm_lang$core$Basics$toString(h),
+				'px')),
+			A2(_debois$elm_mdl$Material_Options$css, 'padding-left', '0px'),
+			A2(_debois$elm_mdl$Material_Options$css, 'padding-top', '0px')
+		]);
+};
+var _user$project$View$playerColor = function (side) {
+	var _p0 = side;
+	if (_p0.ctor === 'Left') {
+		return 'blue';
+	} else {
+		return 'red';
+	}
+};
+var _user$project$View$outerSphereColour = function (side) {
+	var _p1 = side;
+	if (_p1.ctor === 'Left') {
+		return _elm_lang$svg$Svg_Attributes$stopColor('#0B79CE');
+	} else {
+		return _elm_lang$svg$Svg_Attributes$stopColor('red');
+	}
+};
+var _user$project$View$outerSphereGradientColour = function (side) {
+	return A2(
+		_elm_lang$svg$Svg$stop,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$offset('100%'),
+				_elm_lang$svg$Svg_Attributes$stopOpacity('1'),
+				_user$project$View$outerSphereColour(side)
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+};
+var _user$project$View$innerSphereColour = function (side) {
+	var _p2 = side;
+	if (_p2.ctor === 'Left') {
+		return _elm_lang$svg$Svg_Attributes$stopColor('#0B79CE');
+	} else {
+		return _elm_lang$svg$Svg_Attributes$stopColor('red');
+	}
+};
+var _user$project$View$innerSphereGradientColour = function (side) {
+	return A2(
+		_elm_lang$svg$Svg$stop,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$offset('0%'),
+				_elm_lang$svg$Svg_Attributes$stopOpacity('0.3'),
+				_user$project$View$innerSphereColour(side)
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+};
+var _user$project$View$sphereGradientName = function (side) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		'sphereGradient-',
+		_elm_lang$core$Basics$toString(side));
+};
+var _user$project$View$sphereGradientColour = function (side) {
+	return A2(
+		_elm_lang$svg$Svg$radialGradient,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$id(
+				_user$project$View$sphereGradientName(side)),
+				_elm_lang$svg$Svg_Attributes$cx('50%'),
+				_elm_lang$svg$Svg_Attributes$cy('50%'),
+				_elm_lang$svg$Svg_Attributes$r('50%'),
+				_elm_lang$svg$Svg_Attributes$fx('50%'),
+				_elm_lang$svg$Svg_Attributes$fy('50%')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_user$project$View$innerSphereGradientColour(side),
+				_user$project$View$outerSphereGradientColour(side)
+			]));
+};
+var _user$project$View$renderMessage = F4(
+	function (xpos, ypos, message, world) {
+		return A2(
+			_elm_lang$svg$Svg$text$,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$svg$Svg_Attributes$x(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(xpos),
+						'px')),
+					_elm_lang$svg$Svg_Attributes$y(
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_elm_lang$core$Basics$toString(ypos),
+						'px')),
+					_elm_lang$svg$Svg_Attributes$fill('grey'),
+					_elm_lang$svg$Svg_Attributes$opacity('0.6')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$svg$Svg$text(message)
+				]));
+	});
+var _user$project$View$renderStateMessage = F2(
+	function (world, svgs) {
+		var _p3 = world.state;
+		switch (_p3.ctor) {
+			case 'Pause':
+				return A2(
+					_elm_lang$core$List$append,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A4(_user$project$View$renderMessage, world.outerContainer.x2 / 2, world.outerContainer.y2 / 2, 'Paused', world)
+						]),
+					svgs);
+			case 'Win':
+				return A2(
+					_elm_lang$core$List$append,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A4(_user$project$View$renderMessage, world.outerContainer.x2 / 2, world.outerContainer.y2 / 2, 'Won', world)
+						]),
+					svgs);
+			default:
+				return svgs;
+		}
+	});
+var _user$project$View$renderPlayer = F3(
+	function (player, sideLine, world) {
+		return A2(
+			_elm_lang$svg$Svg$rect,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$svg$Svg_Attributes$x(
+					_elm_lang$core$Basics$toString(player.position.x)),
+					_elm_lang$svg$Svg_Attributes$y(
+					_elm_lang$core$Basics$toString(player.position.y)),
+					_elm_lang$svg$Svg_Attributes$width(
+					_elm_lang$core$Basics$toString(_user$project$Config$playerWidth)),
+					_elm_lang$svg$Svg_Attributes$height(
+					_elm_lang$core$Basics$toString(player.size)),
+					_elm_lang$svg$Svg_Attributes$fill(
+					_user$project$View$playerColor(player.side)),
+					_elm_lang$svg$Svg_Attributes$fillOpacity('0.5'),
+					_elm_lang$svg$Svg_Attributes$stroke(
+					_user$project$View$playerColor(player.side)),
+					_elm_lang$svg$Svg_Attributes$strokeWidth('2'),
+					_elm_lang$svg$Svg_Attributes$strokeOpacity('1')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[]));
+	});
+var _user$project$View$getSideLine = F2(
+	function (side, world) {
+		var _p4 = side;
+		if (_p4.ctor === 'Left') {
+			return world.leftSideLine;
+		} else {
+			return world.rightSideLine;
+		}
+	});
+var _user$project$View$renderPlayers = F2(
+	function (players, world) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A3(
+					_user$project$View$renderPlayer,
+					e,
+					A2(_user$project$View$getSideLine, e.side, world),
+					world);
+			},
+			players);
+	});
+var _user$project$View$renderSideLine = function (sideline) {
+	return A2(
+		_elm_lang$svg$Svg$line,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$x1(
+				_elm_lang$core$Basics$toString(sideline.x1)),
+				_elm_lang$svg$Svg_Attributes$x2(
+				_elm_lang$core$Basics$toString(sideline.x2)),
+				_elm_lang$svg$Svg_Attributes$y1(
+				_elm_lang$core$Basics$toString(sideline.y1)),
+				_elm_lang$svg$Svg_Attributes$y2(
+				_elm_lang$core$Basics$toString(sideline.y2)),
+				_elm_lang$svg$Svg_Attributes$stroke(
+				_user$project$View$playerColor(sideline.side)),
+				_elm_lang$svg$Svg_Attributes$strokeWidth('1'),
+				_elm_lang$svg$Svg_Attributes$strokeOpacity('0.6')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+};
+var _user$project$View$renderSideLines = function (world) {
+	return _elm_lang$core$Native_List.fromArray(
+		[
+			_user$project$View$renderSideLine(world.leftSideLine),
+			_user$project$View$renderSideLine(world.rightSideLine)
+		]);
+};
+var _user$project$View$outerBorderY = F3(
+	function (side, height, world) {
+		var _p5 = side;
+		if (_p5.ctor === 'Left') {
+			return (world.outerContainer.y2 - (_user$project$Config$containerBorder / 2)) - height;
+		} else {
+			return (world.outerContainer.y2 - (_user$project$Config$containerBorder / 2)) - height;
+		}
+	});
+var _user$project$View$outerBorderX = F2(
+	function (side, world) {
+		var _p6 = side;
+		if (_p6.ctor === 'Left') {
+			return world.outerContainer.x1 + (_user$project$Config$containerBorder / 2);
+		} else {
+			return (world.outerContainer.x2 - (_user$project$Config$containerBorder / 2)) - _user$project$View$scoreWidth(world);
+		}
+	});
+var _user$project$View$scoreWidth = function (world) {
+	return world.leftSideLine.x1 - A2(_user$project$View$outerBorderX, _user$project$Types$Left, world);
+};
+var _user$project$View$scoreGameHeight = F3(
+	function (settings, innerContainer, gamesWon) {
+		return (_elm_lang$core$Basics$toFloat(gamesWon) / _elm_lang$core$Basics$toFloat(settings.gamesToWin)) * (innerContainer.y2 - innerContainer.y1);
+	});
+var _user$project$View$scoreHeight = F2(
+	function (innerContainer, player) {
+		return (player.score / 100) * (innerContainer.y2 - innerContainer.y1);
+	});
+var _user$project$View$renderGameScore = F2(
+	function (world, player) {
+		return A2(
+			_elm_lang$svg$Svg$rect,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$svg$Svg_Attributes$x(
+					_elm_lang$core$Basics$toString(
+						A2(_user$project$View$outerBorderX, player.side, world))),
+					_elm_lang$svg$Svg_Attributes$y(
+					_elm_lang$core$Basics$toString(
+						A3(
+							_user$project$View$outerBorderY,
+							player.side,
+							A2(_user$project$View$scoreHeight, world.innerContainer, player),
+							world) - A3(_user$project$View$scoreGameHeight, world.gameSettings, world.innerContainer, player.gamesWon))),
+					_elm_lang$svg$Svg_Attributes$width(
+					_elm_lang$core$Basics$toString(
+						A2(
+							F2(
+								function (x, y) {
+									return x / y;
+								}),
+							_user$project$View$scoreWidth(world),
+							2))),
+					_elm_lang$svg$Svg_Attributes$height(
+					_elm_lang$core$Basics$toString(
+						A3(_user$project$View$scoreGameHeight, world.gameSettings, world.innerContainer, player.gamesWon))),
+					_elm_lang$svg$Svg_Attributes$fill('blue'),
+					_elm_lang$svg$Svg_Attributes$fillOpacity('0.4')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[]));
+	});
+var _user$project$View$renderScore = F2(
+	function (world, player) {
+		return A2(
+			_elm_lang$svg$Svg$rect,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_elm_lang$svg$Svg_Attributes$x(
+					_elm_lang$core$Basics$toString(
+						A2(_user$project$View$outerBorderX, player.side, world))),
+					_elm_lang$svg$Svg_Attributes$y(
+					_elm_lang$core$Basics$toString(
+						A3(
+							_user$project$View$outerBorderY,
+							player.side,
+							A2(_user$project$View$scoreHeight, world.innerContainer, player),
+							world))),
+					_elm_lang$svg$Svg_Attributes$width(
+					_elm_lang$core$Basics$toString(
+						_user$project$View$scoreWidth(world))),
+					_elm_lang$svg$Svg_Attributes$height(
+					_elm_lang$core$Basics$toString(
+						A2(_user$project$View$scoreHeight, world.innerContainer, player))),
+					_elm_lang$svg$Svg_Attributes$fill(
+					_user$project$View$playerColor(player.side)),
+					_elm_lang$svg$Svg_Attributes$fillOpacity('0.1')
+				]),
+			_elm_lang$core$Native_List.fromArray(
+				[]));
+	});
+var _user$project$View$renderScores = function (world) {
+	return function (s) {
+		return A2(
+			_elm_lang$core$List$append,
+			s,
+			A2(
+				_elm_lang$core$List$map,
+				function (e) {
+					return A2(_user$project$View$renderGameScore, world, e);
+				},
+				world.players));
+	}(
+		A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A2(_user$project$View$renderScore, world, e);
+			},
+			world.players));
+};
+var _user$project$View$renderCircle = function (sphere) {
+	return A2(
+		_elm_lang$svg$Svg$circle,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$cx(
+				_elm_lang$core$Basics$toString(sphere.position.x)),
+				_elm_lang$svg$Svg_Attributes$cy(
+				_elm_lang$core$Basics$toString(sphere.position.y)),
+				_elm_lang$svg$Svg_Attributes$r(
+				_elm_lang$core$Basics$toString(sphere.diameter / 2)),
+				_elm_lang$svg$Svg_Attributes$fill(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					'url(#',
+					A2(
+						_elm_lang$core$Basics_ops['++'],
+						_user$project$View$sphereGradientName(sphere.side),
+						')')))
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+};
+var _user$project$View$renderCircles = function (world) {
+	return A2(
+		_elm_lang$core$List$map,
+		function (e) {
+			return _user$project$View$renderCircle(e);
+		},
+		world.spheres);
+};
+var _user$project$View$renderWorldObjects = function (world) {
+	return A2(
+		_user$project$View$renderStateMessage,
+		world,
+		function (e) {
+			return A2(
+				_elm_lang$core$List$append,
+				e,
+				_user$project$View$renderScores(world));
+		}(
+			function (e) {
+				return A2(
+					_elm_lang$core$List$append,
+					e,
+					_user$project$View$renderSideLines(world));
+			}(
+				function (e) {
+					return A2(
+						_elm_lang$core$List$append,
+						e,
+						A2(_user$project$View$renderPlayers, world.players, world));
+				}(
+					_user$project$View$renderCircles(world)))));
+};
+var _user$project$View$graphicContainer = function (world) {
+	return A2(
+		_elm_lang$svg$Svg$rect,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$x(
+				_elm_lang$core$Basics$toString(world.outerContainer.x1)),
+				_elm_lang$svg$Svg_Attributes$y(
+				_elm_lang$core$Basics$toString(world.outerContainer.y1)),
+				_elm_lang$svg$Svg_Attributes$width(
+				_elm_lang$core$Basics$toString(world.outerContainer.x2 - world.outerContainer.x1)),
+				_elm_lang$svg$Svg_Attributes$height(
+				_elm_lang$core$Basics$toString(world.outerContainer.y2 - world.outerContainer.y1)),
+				_elm_lang$svg$Svg_Attributes$fill('none'),
+				_elm_lang$svg$Svg_Attributes$stroke('blue'),
+				_elm_lang$svg$Svg_Attributes$strokeWidth(
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					_elm_lang$core$Basics$toString(_user$project$Config$containerBorder),
+					'px')),
+				_elm_lang$svg$Svg_Attributes$strokeOpacity('0.4')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[]));
+};
+var _user$project$View$mainDrawingArea = function (model) {
+	return A2(
+		_elm_lang$svg$Svg$svg,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$width(
+				_elm_lang$core$Basics$toString(_user$project$Config$graphicWidth)),
+				_elm_lang$svg$Svg_Attributes$height(
+				_elm_lang$core$Basics$toString(_user$project$Config$graphicHeight)),
+				_elm_lang$svg$Svg_Attributes$style('background-color: none')
+			]),
+		A2(
+			_elm_lang$core$List$append,
+			_elm_lang$core$Native_List.fromArray(
+				[
+					_user$project$View$graphicContainer(model),
+					_user$project$View$sphereGradientColour(_user$project$Types$Left),
+					_user$project$View$sphereGradientColour(_user$project$Types$Right)
+				]),
+			_user$project$View$renderWorldObjects(model)));
+};
+var _user$project$View$layoutGrid = function (model) {
+	return A2(
+		_debois$elm_mdl$Material_Grid$grid,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A3(
+				_user$project$FormComponents$cell,
+				_user$project$Config$graphicHeight,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 8),
+						A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 8),
+						_debois$elm_mdl$Material_Elevation$e16,
+						A2(
+						_debois$elm_mdl$Material_Options$css,
+						'min-width',
+						A2(
+							_elm_lang$core$Basics_ops['++'],
+							_elm_lang$core$Basics$toString(_user$project$Config$graphicWidth),
+							'px'))
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$View$mainDrawingArea(model)
+					])),
+				A3(
+				_user$project$FormComponents$cell,
+				_user$project$Config$graphicHeight,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$All, 2),
+						A2(_debois$elm_mdl$Material_Grid$size, _debois$elm_mdl$Material_Grid$Tablet, 2),
+						_debois$elm_mdl$Material_Elevation$e16
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_user$project$FormComponents$optionsForm(model)
+					]))
+			]));
+};
+var _user$project$View$view = function (model) {
+	return A3(
+		_debois$elm_mdl$Material_Scheme$topWithScheme,
+		_debois$elm_mdl$Material_Color$Blue,
+		_debois$elm_mdl$Material_Color$LightBlue,
+		_user$project$View$layoutGrid(model));
+};
+var _user$project$Update$updateGravityStrength = F2(
+	function (physicsSettings, number) {
+		return _elm_lang$core$Native_Utils.update(
+			physicsSettings,
+			{
+				gravitationalConstant: A3(_elm_lang$core$Basics$clamp, 0, 60, number)
+			});
+	});
+var _user$project$Update$flipSign = F2(
+	function (flip, number) {
+		return flip ? _elm_lang$core$Basics$negate(number) : number;
+	});
+var _user$project$Update$flipAttactionType = function (attactionType) {
+	return _elm_lang$core$Native_Utils.eq(attactionType, _user$project$Types$Attract) ? _user$project$Types$Repel : _user$project$Types$Attract;
+};
+var _user$project$Update$flipGravity = function (physicsSettings) {
+	return _elm_lang$core$Native_Utils.update(
+		physicsSettings,
+		{
+			gravityAttractionType: _user$project$Update$flipAttactionType(physicsSettings.gravityAttractionType)
+		});
+};
+var _user$project$Update$flipWorldGravity = function (world) {
+	return _elm_lang$core$Native_Utils.update(
+		world,
+		{
+			physicsSettings: _user$project$Update$flipGravity(world.physicsSettings)
+		});
+};
+var _user$project$Update$removeMergedSpheres = function (spheres) {
+	return A2(
+		_elm_lang$core$List$filter,
+		function (e) {
+			return _elm_lang$core$Native_Utils.eq(e.merged, false);
+		},
+		spheres);
+};
+var _user$project$Update$markAsMerged = function (sphere) {
+	return _elm_lang$core$Native_Utils.update(
+		sphere,
+		{merged: true});
+};
+var _user$project$Update$groupFunction = F2(
+	function (func, objects) {
+		return objects;
+	});
+var _user$project$Update$filterNothings = function (list) {
+	return A2(_elm_lang$core$List$filterMap, _elm_lang$core$Basics$identity, list);
+};
+var _user$project$Update$square = function (n) {
+	return Math.pow(n, 2);
+};
+var _user$project$Update$sphereRadius = function (sphere) {
+	return sphere.diameter / 2;
+};
+var _user$project$Update$calculateDiameter = F2(
+	function (scale, mass) {
+		return A2(
+			F2(
+				function (x, y) {
+					return x * y;
+				}),
+			scale,
+			_elm_lang$core$Basics$sqrt(mass / _elm_lang$core$Basics$pi));
+	});
+var _user$project$Update$updateDiameter = F2(
+	function (scale, sphere) {
+		return _elm_lang$core$Native_Utils.update(
+			sphere,
+			{
+				diameter: A2(_user$project$Update$calculateDiameter, scale, sphere.mass.size)
+			});
+	});
+var _user$project$Update$sumY = function (forces) {
+	return _elm_lang$core$List$sum(
+		A2(
+			_elm_lang$core$List$map,
+			function (f) {
+				return f.y;
+			},
+			forces));
+};
+var _user$project$Update$sumX = function (forces) {
+	return _elm_lang$core$List$sum(
+		A2(
+			_elm_lang$core$List$map,
+			function (f) {
+				return f.x;
+			},
+			forces));
+};
+var _user$project$Update$limitSphereVelocity = F2(
+	function (settings, velocity) {
+		return A3(
+			_elm_lang$core$Basics$clamp,
+			_elm_lang$core$Basics$negate(settings.maxSphereVelocity),
+			settings.maxSphereVelocity,
+			velocity);
+	});
+var _user$project$Update$updateVelocityForForces = F4(
+	function (settings, velocity, mass, forces) {
+		return _elm_lang$core$Native_Utils.update(
+			velocity,
+			{
+				x: velocity.x + (_user$project$Update$sumX(forces) / mass),
+				y: velocity.y + (_user$project$Update$sumY(forces) / mass)
+			});
+	});
+var _user$project$Update$applyForcesToObject = F3(
+	function (settings, sphere, forces) {
+		return _elm_lang$core$Native_Utils.update(
+			sphere,
+			{
+				velocity: A4(_user$project$Update$updateVelocityForForces, settings, sphere.velocity, sphere.mass.size, forces)
+			});
+	});
+var _user$project$Update$euclideanDistance = F2(
+	function (positionA, positionB) {
+		return _elm_lang$core$Basics$sqrt(
+			_user$project$Update$square(positionB.x - positionA.x) + _user$project$Update$square(positionB.y - positionA.y));
+	});
+var _user$project$Update$hasCollided = F2(
+	function (sphereA, sphereB) {
+		return A2(
+			F2(
+				function (x, y) {
+					return _elm_lang$core$Native_Utils.cmp(x, y) < 0;
+				}),
+			A2(_user$project$Update$euclideanDistance, sphereA.position, sphereB.position),
+			_user$project$Update$sphereRadius(sphereA) + _user$project$Update$sphereRadius(sphereB));
+	});
+var _user$project$Update$collidedSpheres = F2(
+	function (sphere, otherSpheres) {
+		return A2(
+			_elm_lang$core$List$filter,
+			function (e) {
+				return _elm_lang$core$Native_Utils.cmp(
+					A2(_user$project$Update$euclideanDistance, sphere.position, e.position),
+					sphere.diameter + e.diameter) < 0;
+			},
+			otherSpheres);
+	});
+var _user$project$Update$calculateGravitationScalar = F4(
+	function (gravConst, mass1, mass2, distance) {
+		return {
+			size: ((mass1.size * mass2.size) / Math.pow(distance, 2)) * (0 - gravConst)
+		};
+	});
+var _user$project$Update$emptyForce = {x: 0, y: 0};
+var _user$project$Update$apportianForce = F3(
+	function (positionA, positionB, distance) {
+		return (positionA - positionB) / distance;
+	});
+var _user$project$Update$calculateGravitation = F4(
+	function (settings, dt, sphereA, sphereB) {
+		var repel = _elm_lang$core$Native_Utils.eq(settings.gravityAttractionType, _user$project$Types$Repel);
+		var distance = A2(_user$project$Update$euclideanDistance, sphereA.position, sphereB.position);
+		var force = A4(_user$project$Update$calculateGravitationScalar, settings.gravitationalConstant, sphereA.mass, sphereB.mass, distance);
+		return ((_elm_lang$core$Native_Utils.cmp(distance, sphereA.diameter) < 0) && (_elm_lang$core$Native_Utils.cmp(distance, sphereB.diameter) < 0)) ? _user$project$Update$emptyForce : {
+			x: (dt * force.size) * A2(
+				_user$project$Update$flipSign,
+				repel,
+				A3(_user$project$Update$apportianForce, sphereA.position.x, sphereB.position.x, distance)),
+			y: (dt * force.size) * A2(
+				_user$project$Update$flipSign,
+				repel,
+				A3(_user$project$Update$apportianForce, sphereA.position.y, sphereB.position.y, distance))
+		};
+	});
+var _user$project$Update$applyGravitationForAll = F4(
+	function (settings, dt, sphereA, spheres) {
+		return A3(
+			_user$project$Update$applyForcesToObject,
+			settings,
+			sphereA,
+			A2(
+				_elm_lang$core$List$map,
+				function (s) {
+					return A4(_user$project$Update$calculateGravitation, settings, dt, sphereA, s);
+				},
+				A2(
+					_elm_lang$core$List$filter,
+					function (s) {
+						return !_elm_lang$core$Native_Utils.eq(s, sphereA);
+					},
+					spheres)));
+	});
+var _user$project$Update$filterSpheres = F2(
+	function (sphere, spheres) {
+		return A2(
+			_elm_lang$core$List$filter,
+			function (e1) {
+				return !_elm_lang$core$Native_Utils.eq(e1, sphere);
+			},
+			spheres);
+	});
+var _user$project$Update$calculateNewPosistion = F2(
+	function (velocity, position) {
+		return {x: velocity.x + position.x, y: velocity.y + position.y};
+	});
+var _user$project$Update$calculateNewVelocityInAxis = F8(
+	function (massA, massB, velocityA, velocityB, massA$, massB$, velocityA$, velocityB$) {
+		var momentumBefore = (massA * velocityA) + (massB * velocityB);
+		return momentumBefore / massA$;
+	});
+var _user$project$Update$calculateMomentum = F2(
+	function (mass, velocity) {
+		return mass * velocity;
+	});
+var _user$project$Update$updatePlayerPosistion = function (player) {
+	return _elm_lang$core$Native_Utils.update(
+		player,
+		{
+			position: A2(_user$project$Update$calculateNewPosistion, player.velocity, player.position)
+		});
+};
+var _user$project$Update$updateSpherePosistion = function (sphere) {
+	return _elm_lang$core$Native_Utils.update(
+		sphere,
+		{
+			position: A2(_user$project$Update$calculateNewPosistion, sphere.velocity, sphere.position)
+		});
+};
+var _user$project$Update$mergePosition = F2(
+	function (positionA, positionB) {
+		return _elm_lang$core$Native_Utils.update(
+			positionA,
+			{x: positionA.x + (positionB.x - positionA.x), y: positionA.y + (positionB.y - positionA.y)});
+	});
+var _user$project$Update$calculateNewVelocity = F4(
+	function (sphereAPrior, sphereBPrior, sphereAPost, sphereBPost) {
+		return {
+			x: A8(_user$project$Update$calculateNewVelocityInAxis, sphereAPrior.mass.size, sphereBPrior.mass.size, sphereAPrior.velocity.x, sphereBPrior.velocity.x, sphereAPost.mass.size, sphereBPost.mass.size, sphereAPost.velocity.x, sphereBPost.velocity.x),
+			y: A8(_user$project$Update$calculateNewVelocityInAxis, sphereAPrior.mass.size, sphereBPrior.mass.size, sphereAPrior.velocity.y, sphereBPrior.velocity.y, sphereAPost.mass.size, sphereBPost.mass.size, sphereAPost.velocity.y, sphereBPost.velocity.y)
+		};
+	});
+var _user$project$Update$updateVelocity = F4(
+	function (sphereAPrior, sphereBPrior, sphereAPost, sphereBPost) {
+		return _elm_lang$core$Native_Utils.update(
+			sphereAPost,
+			{
+				velocity: A4(_user$project$Update$calculateNewVelocity, sphereAPrior, sphereBPrior, sphereAPost, sphereBPost)
+			});
+	});
+var _user$project$Update$sumMass = F2(
+	function (massA, massB) {
+		return _elm_lang$core$Native_Utils.update(
+			massA,
+			{size: massA.size + massB.size});
+	});
+var _user$project$Update$limitSphereMass = F2(
+	function (world, mass) {
+		return _elm_lang$core$Native_Utils.update(
+			mass,
+			{
+				size: A3(_elm_lang$core$Basics$clamp, 0, world.physicsSettings.maxSphereSize, mass.size)
+			});
+	});
+var _user$project$Update$largestMassSide = F4(
+	function (sideA, sideB, massA, massB) {
+		return (_elm_lang$core$Native_Utils.cmp(massA.size, massB.size) > 0) ? sideA : sideB;
+	});
+var _user$project$Update$mergeSphere = F3(
+	function (world, sphereA, sphereB) {
+		var sphereBPost = _elm_lang$core$Native_Utils.update(
+			sphereB,
+			{
+				mass: {size: 0},
+				position: {x: 0, y: 0},
+				velocity: {x: 0, y: 0}
+			});
+		var sphereAPost = _elm_lang$core$Native_Utils.update(
+			sphereA,
+			{
+				mass: A2(
+					_user$project$Update$limitSphereMass,
+					world,
+					A2(_user$project$Update$sumMass, sphereA.mass, sphereB.mass)),
+				position: A2(_user$project$Update$mergePosition, sphereA.position, sphereB.position),
+				side: A4(_user$project$Update$largestMassSide, sphereA.side, sphereB.side, sphereA.mass, sphereB.mass)
+			});
+		return A2(
+			_user$project$Update$updateDiameter,
+			sphereA.scale,
+			A4(_user$project$Update$updateVelocity, sphereA, sphereB, sphereAPost, sphereBPost));
+	});
+var _user$project$Update$mergeSpheres = F3(
+	function (world, sphere, otherSpheres) {
+		var spheresCollided = A2(_user$project$Update$collidedSpheres, sphere, otherSpheres);
+		return _elm_lang$core$List$isEmpty(spheresCollided) ? sphere : ((A2(
+			_elm_lang$core$List$any,
+			function (f) {
+				return _elm_lang$core$Native_Utils.cmp(f.mass.size, sphere.mass.size) > 0;
+			},
+			spheresCollided) || A2(
+			_elm_lang$core$List$any,
+			function (f) {
+				return _elm_lang$core$Native_Utils.eq(f.mass.size, sphere.mass.size) && (_elm_lang$core$Native_Utils.cmp(f.aliveFrames, sphere.aliveFrames) > 0);
+			},
+			spheresCollided)) ? _user$project$Update$markAsMerged(sphere) : A3(
+			_elm_lang$core$List$foldl,
+			_user$project$Update$mergeSphere(world),
+			sphere,
+			spheresCollided));
+	});
+var _user$project$Update$applySphereCollisions = F2(
+	function (world, spheres) {
+		return _user$project$Update$removeMergedSpheres(
+			A2(
+				_elm_lang$core$List$map,
+				function (e) {
+					return A3(
+						_user$project$Update$mergeSpheres,
+						world,
+						e,
+						A2(
+							_elm_lang$core$List$filter,
+							function (e1) {
+								return !_elm_lang$core$Native_Utils.eq(e1, e);
+							},
+							spheres));
+				},
+				spheres));
+	});
+var _user$project$Update$playerOutOfBounds = F2(
+	function (world, player) {
+		return (_elm_lang$core$Native_Utils.cmp(player.position.y, world.innerContainer.y1) < 0) || (_elm_lang$core$Native_Utils.cmp(player.position.y + player.size, world.innerContainer.y2) > 0);
+	});
+var _user$project$Update$limitPlayerBoundary = F2(
+	function (world, player) {
+		return A2(_user$project$Update$playerOutOfBounds, world, player) ? _elm_lang$core$Native_Utils.update(
+			player,
+			{
+				velocity: {x: 0, y: 0},
+				position: {
+					x: player.position.x,
+					y: (_elm_lang$core$Native_Utils.cmp(player.position.y, world.innerContainer.y2 - player.size) > 0) ? (world.innerContainer.y2 - player.size) : world.innerContainer.y1
+				}
+			}) : player;
+	});
+var _user$project$Update$updatePlayerPositions = F2(
+	function (world, players) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return _user$project$Update$updatePlayerPosistion(e);
+			},
+			A2(
+				_elm_lang$core$List$map,
+				function (e) {
+					return A2(_user$project$Update$limitPlayerBoundary, world, e);
+				},
+				players));
+	});
+var _user$project$Update$makePositive = function (x) {
+	return _elm_lang$core$Basics$abs(x);
+};
+var _user$project$Update$makeNegative = function (x) {
+	return _elm_lang$core$Basics$negate(
+		_user$project$Update$makePositive(x));
+};
+var _user$project$Update$applyHorizontalBoundaryCollisions = F2(
+	function (sphere, world) {
+		return (_elm_lang$core$Native_Utils.cmp(
+			sphere.position.y - _user$project$Update$sphereRadius(sphere),
+			world.leftSideLine.y1) < 0) ? _elm_lang$core$Native_Utils.update(
+			sphere,
+			{
+				velocity: {
+					x: sphere.velocity.x,
+					y: _user$project$Update$makePositive(sphere.velocity.y)
+				}
+			}) : ((_elm_lang$core$Native_Utils.cmp(
+			sphere.position.y + _user$project$Update$sphereRadius(sphere),
+			world.leftSideLine.y2) > 0) ? _elm_lang$core$Native_Utils.update(
+			sphere,
+			{
+				velocity: {
+					x: sphere.velocity.x,
+					y: _user$project$Update$makeNegative(sphere.velocity.y)
+				}
+			}) : sphere);
+	});
+var _user$project$Update$applyBoundaryCollisions = F2(
+	function (world, spheres) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A2(_user$project$Update$applyHorizontalBoundaryCollisions, e, world);
+			},
+			spheres);
+	});
+var _user$project$Update$collidedWithPaddle = F3(
+	function (world, sphere, player) {
+		var radius = _user$project$Update$sphereRadius(sphere);
+		var _p0 = player;
+		if (_p0.ctor === 'Nothing') {
+			return false;
+		} else {
+			var _p2 = _p0._0;
+			var _p1 = _p2.side;
+			if (_p1.ctor === 'Left') {
+				return (_elm_lang$core$Native_Utils.cmp(sphere.position.x - radius, world.leftSideLine.x2) < 0) && ((_elm_lang$core$Native_Utils.cmp(sphere.position.y, _p2.position.y + _p2.size) < 0) && (_elm_lang$core$Native_Utils.cmp(sphere.position.y, _p2.position.y) > 0));
+			} else {
+				return (_elm_lang$core$Native_Utils.cmp(sphere.position.x + radius, world.rightSideLine.x1) > 0) && ((_elm_lang$core$Native_Utils.cmp(sphere.position.y, _p2.position.y + _p2.size) < 0) && (_elm_lang$core$Native_Utils.cmp(sphere.position.y, _p2.position.y) > 0));
+			}
+		}
+	});
+var _user$project$Update$winningPlayer = function (player) {
+	return _elm_lang$core$Native_Utils.eq(player.score, 100);
+};
+var _user$project$Update$anyWinningPlayers = function (players) {
+	return A2(
+		_elm_lang$core$List$any,
+		function (e) {
+			return _user$project$Update$winningPlayer(e);
+		},
+		players);
+};
+var _user$project$Update$findPlayer = F2(
+	function (side, players) {
+		return _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				function (e) {
+					return _elm_lang$core$Native_Utils.eq(e.side, side);
+				},
+				players));
+	});
+var _user$project$Update$sphereDefaultPosition = F3(
+	function (sphere, side, world) {
+		var _p3 = side;
+		if (_p3.ctor === 'Left') {
+			return {
+				x: world.leftSideLine.x2 + _user$project$Update$sphereRadius(sphere),
+				y: sphere.position.y
+			};
+		} else {
+			return {
+				x: world.rightSideLine.x1 - _user$project$Update$sphereRadius(sphere),
+				y: sphere.position.y
+			};
+		}
+	});
+var _user$project$Update$sphereBeyondScoreLine = F3(
+	function (side, sphere, world) {
+		var _p4 = side;
+		if (_p4.ctor === 'Left') {
+			return _elm_lang$core$Native_Utils.cmp(
+				sphere.position.x - _user$project$Update$sphereRadius(sphere),
+				world.leftSideLine.x2) < 0;
+		} else {
+			return _elm_lang$core$Native_Utils.cmp(
+				sphere.position.x + _user$project$Update$sphereRadius(sphere),
+				world.rightSideLine.x1) > 0;
+		}
+	});
+var _user$project$Update$markScoredSphere = F2(
+	function (sphere, world) {
+		return A3(_user$project$Update$sphereBeyondScoreLine, _user$project$Types$Left, sphere, world) ? _elm_lang$core$Native_Utils.update(
+			sphere,
+			{hitType: _user$project$Types$LeftPlayer}) : (A3(_user$project$Update$sphereBeyondScoreLine, _user$project$Types$Right, sphere, world) ? _elm_lang$core$Native_Utils.update(
+			sphere,
+			{hitType: _user$project$Types$RightPlayer}) : sphere);
+	});
+var _user$project$Update$markScoredSpheres = F2(
+	function (spheres, world) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A2(_user$project$Update$markScoredSphere, e, world);
+			},
+			spheres);
+	});
+var _user$project$Update$removeScoredSpheres = function (world) {
+	return _elm_lang$core$Native_Utils.update(
+		world,
+		{
+			spheres: A2(
+				_elm_lang$core$List$filter,
+				function (e) {
+					return _elm_lang$core$Native_Utils.eq(e.hitType, _user$project$Types$None);
+				},
+				world.spheres)
+		});
+};
+var _user$project$Update$applyPaddleCollision = F2(
+	function (sphere, world) {
+		return A3(
+			_user$project$Update$collidedWithPaddle,
+			world,
+			sphere,
+			A2(_user$project$Update$findPlayer, _user$project$Types$Left, world.players)) ? _elm_lang$core$Native_Utils.update(
+			sphere,
+			{
+				velocity: {
+					x: _user$project$Update$makePositive(sphere.velocity.x),
+					y: sphere.velocity.y
+				},
+				position: A3(_user$project$Update$sphereDefaultPosition, sphere, _user$project$Types$Left, world)
+			}) : (A3(
+			_user$project$Update$collidedWithPaddle,
+			world,
+			sphere,
+			A2(_user$project$Update$findPlayer, _user$project$Types$Right, world.players)) ? _elm_lang$core$Native_Utils.update(
+			sphere,
+			{
+				velocity: {
+					x: _user$project$Update$makeNegative(sphere.velocity.x),
+					y: sphere.velocity.y
+				},
+				position: A3(_user$project$Update$sphereDefaultPosition, sphere, _user$project$Types$Right, world)
+			}) : sphere);
+	});
+var _user$project$Update$applyPaddleCollisions = F2(
+	function (world, spheres) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A2(_user$project$Update$applyPaddleCollision, e, world);
+			},
+			spheres);
+	});
+var _user$project$Update$updateSpherePositions = function (spheres) {
+	return A2(
+		_elm_lang$core$List$map,
+		function (e) {
+			return _user$project$Update$updateSpherePosistion(e);
+		},
+		spheres);
+};
+var _user$project$Update$applyPlayerMovementForce = F2(
+	function (dt, player) {
+		var maxVelocity = 15;
+		var dragPercentage = 0.3;
+		var acceleration = 0.6;
+		var upVelocity = function () {
+			var _p5 = player.upAction;
+			if (_p5.ctor === 'Pressed') {
+				return player.velocity.y - acceleration;
+			} else {
+				return player.velocity.y * dragPercentage;
+			}
+		}();
+		var downVelocity = function () {
+			var _p6 = player.downAction;
+			if (_p6.ctor === 'Pressed') {
+				return player.velocity.y + acceleration;
+			} else {
+				return player.velocity.y * dragPercentage;
+			}
+		}();
+		return _elm_lang$core$Native_Utils.update(
+			player,
+			{
+				velocity: {
+					x: 0,
+					y: A3(
+						_elm_lang$core$Basics$clamp,
+						_elm_lang$core$Basics$negate(maxVelocity),
+						maxVelocity,
+						upVelocity + downVelocity)
+				}
+			});
+	});
+var _user$project$Update$applyPlayerForces = F2(
+	function (dt, players) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A2(_user$project$Update$applyPlayerMovementForce, dt, e);
+			},
+			players);
+	});
+var _user$project$Update$applyForces = F3(
+	function (settings, dt, spheres) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return A4(_user$project$Update$applyGravitationForAll, settings, dt, e, spheres);
+			},
+			spheres);
+	});
+var _user$project$Update$incrementWeaponLastFired = F2(
+	function (dt, players) {
+		return A2(
+			_elm_lang$core$List$map,
+			function (e) {
+				return _elm_lang$core$Native_Utils.update(
+					e,
+					{weaponLastFired: e.weaponLastFired + dt});
+			},
+			players);
+	});
+var _user$project$Update$incrementLifetime = function (spheres) {
+	return A2(
+		_elm_lang$core$List$map,
+		function (e) {
+			return _elm_lang$core$Native_Utils.update(
+				e,
+				{aliveFrames: e.aliveFrames + 1});
+		},
+		spheres);
+};
+var _user$project$Update$scored = F2(
+	function (side, sphere) {
+		var _p7 = side;
+		if (_p7.ctor === 'Left') {
+			return _elm_lang$core$Native_Utils.eq(sphere.hitType, _user$project$Types$LeftPlayer);
+		} else {
+			return _elm_lang$core$Native_Utils.eq(sphere.hitType, _user$project$Types$RightPlayer);
+		}
+	});
+var _user$project$Update$toPercentage = F2(
+	function (numerator, denominator) {
+		return (numerator / denominator) * 100;
+	});
+var _user$project$Update$playerScoreAsPercentage = F3(
+	function (settings, player, spheres) {
+		return function (e) {
+			return A2(_user$project$Update$toPercentage, e, settings.scoreForGame);
+		}(
+			_elm_lang$core$List$sum(
+				A2(
+					_elm_lang$core$List$map,
+					function (e) {
+						return e.mass.size;
+					},
+					A2(
+						_elm_lang$core$List$filter,
+						function (e) {
+							return A2(_user$project$Update$scored, player.side, e);
+						},
+						spheres))));
+	});
+var _user$project$Update$updateForWin = function (world) {
+	return _user$project$Update$anyWinningPlayers(world.players) ? _elm_lang$core$Native_Utils.update(
+		world,
+		{state: _user$project$Types$Win}) : world;
+};
+var _user$project$Update$updateWinningPlayer = function (player) {
+	return _elm_lang$core$Native_Utils.eq(player.score, 100) ? _elm_lang$core$Native_Utils.update(
+		player,
+		{gamesWon: player.gamesWon + 1}) : player;
+};
+var _user$project$Update$updatePlayerScore = F3(
+	function (settings, player, spheres) {
+		return _elm_lang$core$Native_Utils.update(
+			player,
+			{
+				score: A3(
+					_elm_lang$core$Basics$clamp,
+					0,
+					100,
+					player.score + A3(_user$project$Update$playerScoreAsPercentage, settings, player, spheres))
+			});
+	});
+var _user$project$Update$updateWinningPlayers = function (world) {
+	return _elm_lang$core$Native_Utils.update(
+		world,
+		{
+			players: A2(
+				_elm_lang$core$List$map,
+				function (e) {
+					return _user$project$Update$updateWinningPlayer(e);
+				},
+				world.players)
+		});
+};
+var _user$project$Update$updatePlayerScores = function (world) {
+	return _elm_lang$core$Native_Utils.update(
+		world,
+		{
+			players: A2(
+				_elm_lang$core$List$map,
+				function (e) {
+					return A3(_user$project$Update$updatePlayerScore, world.gameSettings, e, world.spheres);
+				},
+				world.players)
+		});
+};
+var _user$project$Update$limitSpheres = function (world) {
+	return _elm_lang$core$Native_Utils.update(
+		world,
+		{
+			spheres: A2(
+				_elm_lang$core$List$take,
+				_elm_lang$core$Basics$round(world.gameSettings.sphereLimit),
+				A2(
+					_elm_lang$core$List$sortBy,
+					function (_) {
+						return _.aliveFrames;
+					},
+					world.spheres))
+		});
+};
+var _user$project$Update$applyPhysics = F2(
+	function (dt, world) {
+		return _elm_lang$core$Native_Utils.update(
+			world,
+			{
+				spheres: _user$project$Update$incrementLifetime(
+					A2(
+						_user$project$Update$applyPaddleCollisions,
+						world,
+						A2(
+							_user$project$Update$applySphereCollisions,
+							world,
+							_user$project$Update$updateSpherePositions(
+								A2(
+									_user$project$Update$applyBoundaryCollisions,
+									world,
+									A3(_user$project$Update$applyForces, world.physicsSettings, dt, world.spheres)))))),
+				players: A2(
+					_user$project$Update$incrementWeaponLastFired,
+					dt,
+					A2(
+						_user$project$Update$updatePlayerPositions,
+						world,
+						A2(_user$project$Update$applyPlayerForces, dt, world.players)))
+			});
+	});
+var _user$project$Update$applyScoring = function (world) {
+	return _user$project$Update$updateForWin(
+		_user$project$Update$updateWinningPlayers(
+			_user$project$Update$removeScoredSpheres(
+				_user$project$Update$updatePlayerScores(
+					_elm_lang$core$Native_Utils.update(
+						world,
+						{
+							spheres: A2(_user$project$Update$markScoredSpheres, world.spheres, world)
+						})))));
+};
+var _user$project$Update$caclulateShotPosition = F2(
+	function (player, radius) {
+		return {
+			x: function () {
+				var _p8 = player.side;
+				if (_p8.ctor === 'Left') {
+					return player.position.x + radius;
+				} else {
+					return player.position.x - radius;
+				}
+			}(),
+			y: player.position.y + (player.size / 2)
+		};
+	});
+var _user$project$Update$createSphere = F3(
+	function (player, initialMass, velocity) {
+		var scale = 5;
+		return {
+			id: 'A',
+			side: player.side,
+			position: A2(
+				_user$project$Update$caclulateShotPosition,
+				player,
+				A2(_user$project$Update$calculateDiameter, scale, initialMass.size) / 2),
+			mass: initialMass,
+			diameter: A2(_user$project$Update$calculateDiameter, scale, initialMass.size),
+			velocity: velocity,
+			aliveFrames: 0,
+			scale: scale,
+			merged: false,
+			hitType: _user$project$Types$None
+		};
+	});
+var _user$project$Update$caclulateShotMass = F2(
+	function (settings, player) {
+		return {
+			size: A3(_elm_lang$core$Basics$clamp, 0, settings.maxShotSize, player.weaponLastFired * settings.shotTimeFactor)
+		};
+	});
+var _user$project$Update$caclulateShotVelocity = function (player) {
+	var velocityMultiplierX = 0.7;
+	var velocityMultiplierY = 0.7;
+	return {
+		x: function () {
+			var _p9 = player.side;
+			if (_p9.ctor === 'Left') {
+				return player.mass.size * velocityMultiplierX;
+			} else {
+				return _elm_lang$core$Basics$negate(player.mass.size * velocityMultiplierX);
+			}
+		}(),
+		y: player.velocity.y * velocityMultiplierY
+	};
+};
+var _user$project$Update$shootBall = F2(
+	function (player, world) {
+		return (_elm_lang$core$Native_Utils.cmp(
+			A2(_user$project$Update$caclulateShotMass, world.gameSettings, player).size,
+			world.gameSettings.minShotSize) < 0) ? world : _elm_lang$core$Native_Utils.update(
+			world,
+			{
+				spheres: A2(
+					_elm_lang$core$List$append,
+					world.spheres,
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A3(
+							_user$project$Update$createSphere,
+							player,
+							A2(_user$project$Update$caclulateShotMass, world.gameSettings, player),
+							_user$project$Update$caclulateShotVelocity(player))
+						])),
+				players: A2(
+					_elm_lang$core$List$map,
+					function (e) {
+						return _elm_lang$core$Native_Utils.eq(e.side, player.side) ? _elm_lang$core$Native_Utils.update(
+							player,
+							{weaponLastFired: 0}) : e;
+					},
+					world.players)
+			});
+	});
+var _user$project$Update$attemptShot = F2(
+	function (world, side) {
+		var _p10 = _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$filter,
+				function (p) {
+					return _elm_lang$core$Native_Utils.eq(p.side, side);
+				},
+				world.players));
+		if (_p10.ctor === 'Nothing') {
+			return world;
+		} else {
+			return A2(_user$project$Update$shootBall, _p10._0, world);
+		}
+	});
+var _user$project$Update$updatePlayerName = F3(
+	function (newName, side, world) {
+		return _elm_lang$core$Native_Utils.update(
+			world,
+			{
+				players: A2(
+					_elm_lang$core$List$map,
+					function (e) {
+						return _elm_lang$core$Native_Utils.eq(e.side, side) ? _elm_lang$core$Native_Utils.update(
+							e,
+							{name: newName}) : e;
+					},
+					world.players)
+			});
+	});
+var _user$project$Update$updatePlayerAction = F3(
+	function (player, keyboardAction, direction) {
+		var _p11 = direction;
+		if (_p11.ctor === 'Up') {
+			return _elm_lang$core$Native_Utils.update(
+				player,
+				{upAction: keyboardAction});
+		} else {
+			return _elm_lang$core$Native_Utils.update(
+				player,
+				{downAction: keyboardAction});
+		}
+	});
+var _user$project$Update$updatePlayerActions = F4(
+	function (world, side, keyboardAction, direction) {
+		return _elm_lang$core$Native_Utils.update(
+			world,
+			{
+				players: A2(
+					_elm_lang$core$List$map,
+					function (p) {
+						return _elm_lang$core$Native_Utils.eq(p.side, side) ? A3(_user$project$Update$updatePlayerAction, p, keyboardAction, direction) : p;
+					},
+					world.players)
+			});
+	});
+var _user$project$Update$applyPlayerKeyChange = F3(
+	function (keyCode, action, world) {
+		var _p12 = keyCode;
+		switch (_p12) {
+			case 38:
+				return A4(_user$project$Update$updatePlayerActions, world, _user$project$Types$Right, action, _user$project$Types$Up);
+			case 40:
+				return A4(_user$project$Update$updatePlayerActions, world, _user$project$Types$Right, action, _user$project$Types$Down);
+			case 87:
+				return A4(_user$project$Update$updatePlayerActions, world, _user$project$Types$Left, action, _user$project$Types$Up);
+			case 83:
+				return A4(_user$project$Update$updatePlayerActions, world, _user$project$Types$Left, action, _user$project$Types$Down);
+			case 68:
+				var _p13 = action;
+				if (_p13.ctor === 'Pressed') {
+					return A2(_user$project$Update$attemptShot, world, _user$project$Types$Left);
+				} else {
+					return world;
+				}
+			case 37:
+				var _p14 = action;
+				if (_p14.ctor === 'Pressed') {
+					return A2(_user$project$Update$attemptShot, world, _user$project$Types$Right);
+				} else {
+					return world;
+				}
+			default:
+				return world;
+		}
+	});
+var _user$project$Update$update = F2(
+	function (msg, world) {
+		var _p15 = msg;
+		switch (_p15.ctor) {
+			case 'Tick':
+				var _p16 = world.state;
+				switch (_p16.ctor) {
+					case 'Play':
+						return {
+							ctor: '_Tuple2',
+							_0: _user$project$Update$applyScoring(
+								A2(_user$project$Update$applyPhysics, _p15._0, world)),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					case 'Pause':
+						return {ctor: '_Tuple2', _0: world, _1: _elm_lang$core$Platform_Cmd$none};
+					default:
+						return {ctor: '_Tuple2', _0: world, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'WindowSize':
+				return {ctor: '_Tuple2', _0: world, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'KeyDown':
+				return {
+					ctor: '_Tuple2',
+					_0: A3(_user$project$Update$applyPlayerKeyChange, _p15._0, _user$project$Types$Pressed, world),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'KeyUp':
+				return {
+					ctor: '_Tuple2',
+					_0: A3(_user$project$Update$applyPlayerKeyChange, _p15._0, _user$project$Types$NotPressed, world),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'TogglePause':
+				var _p17 = world.state;
+				switch (_p17.ctor) {
+					case 'Play':
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								world,
+								{state: _user$project$Types$Pause}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					case 'Pause':
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								world,
+								{state: _user$project$Types$Play}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+					default:
+						return {
+							ctor: '_Tuple2',
+							_0: _elm_lang$core$Native_Utils.update(
+								world,
+								{state: _user$project$Types$Play}),
+							_1: _elm_lang$core$Platform_Cmd$none
+						};
+				}
+			case 'PlayerOneName':
+				return {
+					ctor: '_Tuple2',
+					_0: A3(_user$project$Update$updatePlayerName, _p15._0, _user$project$Types$Left, world),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'PlayerTwoName':
+				return {
+					ctor: '_Tuple2',
+					_0: A3(_user$project$Update$updatePlayerName, _p15._0, _user$project$Types$Right, world),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'FlipGravity':
+				return {
+					ctor: '_Tuple2',
+					_0: _user$project$Update$flipWorldGravity(world),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'Slider':
+				var _p18 = _p15._0;
+				if (_p18 === 1) {
+					return {
+						ctor: '_Tuple2',
+						_0: _elm_lang$core$Native_Utils.update(
+							world,
+							{
+								physicsSettings: A2(_user$project$Update$updateGravityStrength, world.physicsSettings, _p15._1)
+							}),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: world, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'SaveState':
+				return {ctor: '_Tuple2', _0: world, _1: _elm_lang$core$Platform_Cmd$none};
+			case 'LoadState':
+				return {ctor: '_Tuple2', _0: world, _1: _elm_lang$core$Platform_Cmd$none};
+			default:
+				return A2(_debois$elm_mdl$Material$update, _p15._0, world);
+		}
+	});
+var _user$project$Main$main = {
+	main: _elm_lang$html$Html_App$program(
+		{init: _user$project$States$defaultWorld, subscriptions: _user$project$States$subscriptions, update: _user$project$Update$update, view: _user$project$View$view})
+};
 var Elm = {};
-Elm['FormComponents'] = Elm['FormComponents'] || {};
-_elm_lang$core$Native_Platform.addPublicModule(Elm['FormComponents'], 'FormComponents', typeof _user$project$FormComponents$main === 'undefined' ? null : _user$project$FormComponents$main);
+Elm['Main'] = Elm['Main'] || {};
+_elm_lang$core$Native_Platform.addPublicModule(Elm['Main'], 'Main', typeof _user$project$Main$main === 'undefined' ? null : _user$project$Main$main);
 
 if (typeof define === "function" && define['amd'])
 {
@@ -14818,4 +16878,4 @@ for (var publicModule in Elm)
 }
 
 }).call(this);
-</script></head><body><script type="text/javascript">Elm.FormComponents.fullscreen()</script></body></html>
+</script></head><body><script type="text/javascript">Elm.Main.fullscreen()</script></body></html>
