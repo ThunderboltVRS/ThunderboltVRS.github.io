@@ -7933,15 +7933,15 @@ var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$styl
 
 var _user$project$Types$PasswordRule = F5(
 	function (a, b, c, d, e) {
-		return {regEx: a, description: b, mandatory: c, valid: d, subRules: e};
+		return {regEx: a, description: b, mandatory: c, validity: d, subRules: e};
 	});
 var _user$project$Types$SubRule = F4(
 	function (a, b, c, d) {
-		return {regEx: a, description: b, mandatory: c, valid: d};
+		return {regEx: a, description: b, mandatory: c, validity: d};
 	});
 var _user$project$Types$Model = F3(
 	function (a, b, c) {
-		return {passwordText: a, rules: b, valid: c};
+		return {passwordText: a, rules: b, validity: c};
 	});
 var _user$project$Types$AlterPassword = function (a) {
 	return {ctor: 'AlterPassword', _0: a};
@@ -7965,7 +7965,7 @@ var _user$project$View$textStyle = function (fontSize) {
 			_1: A2(
 				_elm_lang$core$Basics_ops['++'],
 				_elm_lang$core$Basics$toString(fontSize),
-				'px')
+				'pt')
 		},
 			{ctor: '_Tuple2', _0: 'vertical-align', _1: 'top'},
 			{ctor: '_Tuple2', _0: 'font-family', _1: 'Segoe UI'}
@@ -7981,8 +7981,8 @@ var _user$project$View$ruleText = function (description) {
 	return _elm_lang$html$Html$text(description);
 };
 var _user$project$View$minRowHeight = 50;
-var _user$project$View$subRuleTextSize = 17;
-var _user$project$View$ruleTextSize = 19;
+var _user$project$View$subRuleTextSize = 10;
+var _user$project$View$ruleTextSize = 11;
 var _user$project$View$subRuleWidth = '300px';
 var _user$project$View$ruleWidth = '360px';
 var _user$project$View$iconCellWidth = '40px';
@@ -8019,7 +8019,7 @@ var _user$project$View$subRules = function (passwordRule) {
 		A2(
 			_elm_lang$core$List$filter,
 			function (s) {
-				return _elm_lang$core$Native_Utils.eq(s.valid, _user$project$Types$No);
+				return _elm_lang$core$Native_Utils.eq(s.validity, _user$project$Types$No);
 			},
 			passwordRule.subRules));
 };
@@ -8043,7 +8043,8 @@ var _user$project$View$ruleCell = function (passwordRule) {
 				_elm_lang$html$Html_Attributes$style(
 				_elm_lang$core$Native_List.fromArray(
 					[
-						{ctor: '_Tuple2', _0: 'vertical-align', _1: 'top'}
+						{ctor: '_Tuple2', _0: 'vertical-align', _1: 'top'},
+						{ctor: '_Tuple2', _0: 'padding-top', _1: '2px'}
 					]))
 			]),
 		A2(
@@ -8063,7 +8064,7 @@ var _user$project$View$ruleCell = function (passwordRule) {
 										{
 										ctor: '_Tuple2',
 										_0: 'color',
-										_1: _user$project$View$validityColor(passwordRule.valid)
+										_1: _user$project$View$validityColor(passwordRule.validity)
 									}
 									]),
 								_user$project$View$textStyle(_user$project$View$ruleTextSize)))
@@ -8143,7 +8144,7 @@ var _user$project$View$ruleRow = function (passwordRule) {
 								]),
 							_elm_lang$core$Native_List.fromArray(
 								[
-									_user$project$View$ruleIcon(passwordRule.valid)
+									_user$project$View$ruleIcon(passwordRule.validity)
 								]))
 						]))
 				]),
@@ -8198,7 +8199,7 @@ var _user$project$States$initialModel = {
 			regEx: '.{8,}',
 			description: 'A minimum of 8 characters',
 			mandatory: true,
-			valid: _user$project$Types$No,
+			validity: _user$project$Types$No,
 			subRules: _elm_lang$core$Native_List.fromArray(
 				[])
 		},
@@ -8206,7 +8207,7 @@ var _user$project$States$initialModel = {
 			regEx: '(?=.*\\d)',
 			description: 'At least 1 number',
 			mandatory: true,
-			valid: _user$project$Types$No,
+			validity: _user$project$Types$No,
 			subRules: _elm_lang$core$Native_List.fromArray(
 				[])
 		},
@@ -8214,7 +8215,7 @@ var _user$project$States$initialModel = {
 			regEx: '(?=.*[A-Z])',
 			description: 'At least 1 uppercase letter',
 			mandatory: true,
-			valid: _user$project$Types$No,
+			validity: _user$project$Types$No,
 			subRules: _elm_lang$core$Native_List.fromArray(
 				[])
 		},
@@ -8222,7 +8223,7 @@ var _user$project$States$initialModel = {
 			regEx: '(?=.*[a-z])',
 			description: 'At least 1 lowercase letter',
 			mandatory: true,
-			valid: _user$project$Types$No,
+			validity: _user$project$Types$No,
 			subRules: _elm_lang$core$Native_List.fromArray(
 				[])
 		},
@@ -8230,7 +8231,7 @@ var _user$project$States$initialModel = {
 			regEx: '(?=.*[^A-Za-z0-9])',
 			description: 'At least 1 special character',
 			mandatory: true,
-			valid: _user$project$Types$No,
+			validity: _user$project$Types$No,
 			subRules: _elm_lang$core$Native_List.fromArray(
 				[
 					{
@@ -8239,7 +8240,7 @@ var _user$project$States$initialModel = {
 							['^((?!\\s).)*$'])),
 					description: 'No spaces allowed',
 					mandatory: true,
-					valid: _user$project$Types$Yes
+					validity: _user$project$Types$Yes
 				},
 					{
 					regEx: _elm_lang$core$String$concat(
@@ -8247,12 +8248,12 @@ var _user$project$States$initialModel = {
 							['^((?!£).)*$'])),
 					description: 'No pound(£) symbols allowed',
 					mandatory: true,
-					valid: _user$project$Types$Yes
+					validity: _user$project$Types$Yes
 				}
 				])
 		}
 		]),
-	valid: _user$project$Types$No
+	validity: _user$project$Types$No
 };
 var _user$project$States$defaultModel = {ctor: '_Tuple2', _0: _user$project$States$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 
@@ -8261,7 +8262,7 @@ var _user$project$Update$recalculateSubRule = F2(
 		return _elm_lang$core$Native_Utils.update(
 			passwordRule,
 			{
-				valid: function () {
+				validity: function () {
 					var _p0 = A2(
 						_elm_lang$core$Regex$contains,
 						_elm_lang$core$Regex$regex(passwordRule.regEx),
@@ -8297,7 +8298,7 @@ var _user$project$Update$passwordRuleValidity = F2(
 		return _elm_lang$core$Basics$not(rulePasswordValid) ? _user$project$Types$No : ((_elm_lang$core$List$isEmpty(passwordRule.subRules) || A2(
 			_elm_lang$core$List$all,
 			function (r) {
-				return _elm_lang$core$Native_Utils.eq(r.valid, _user$project$Types$Yes);
+				return _elm_lang$core$Native_Utils.eq(r.validity, _user$project$Types$Yes);
 			},
 			passwordRule.subRules)) ? _user$project$Types$Yes : _user$project$Types$Partial);
 	});
@@ -8307,7 +8308,7 @@ var _user$project$Update$recalculateRule = F2(
 		return _elm_lang$core$Native_Utils.update(
 			subRulesCalculated,
 			{
-				valid: A2(_user$project$Update$passwordRuleValidity, password, subRulesCalculated)
+				validity: A2(_user$project$Update$passwordRuleValidity, password, subRulesCalculated)
 			});
 	});
 var _user$project$Update$recalculateRules = F2(
@@ -8327,13 +8328,13 @@ var _user$project$Update$updateModelValidity = function (model) {
 	var allValid = A2(
 		_elm_lang$core$List$all,
 		function (r) {
-			return _elm_lang$core$Native_Utils.eq(r.valid, _user$project$Types$Yes);
+			return _elm_lang$core$Native_Utils.eq(r.validity, _user$project$Types$Yes);
 		},
 		model.rules);
 	return _elm_lang$core$Native_Utils.update(
 		model,
 		{
-			valid: allValid ? _user$project$Types$Yes : _user$project$Types$No
+			validity: allValid ? _user$project$Types$Yes : _user$project$Types$No
 		});
 };
 var _user$project$Update$update = F2(
