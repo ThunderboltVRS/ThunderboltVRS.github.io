@@ -7950,6 +7950,24 @@ var _user$project$Types$No = {ctor: 'No'};
 var _user$project$Types$Partial = {ctor: 'Partial'};
 var _user$project$Types$Yes = {ctor: 'Yes'};
 
+var _user$project$View$pointUnit = function (value) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(value),
+		'pt');
+};
+var _user$project$View$percentUnit = function (value) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(value),
+		'%');
+};
+var _user$project$View$pixelUnit = function (value) {
+	return A2(
+		_elm_lang$core$Basics_ops['++'],
+		_elm_lang$core$Basics$toString(value),
+		'px');
+};
 var _user$project$View$ruleRowStyle = _elm_lang$core$Native_List.fromArray(
 	[
 		{ctor: '_Tuple2', _0: 'width', _1: '100%'}
@@ -7958,14 +7976,10 @@ var _user$project$View$textStyle = function (fontSize) {
 	return _elm_lang$core$Native_List.fromArray(
 		[
 			{ctor: '_Tuple2', _0: 'opacity', _1: '0.9'},
-			{ctor: '_Tuple2', _0: 'font-weight', _1: '400'},
 			{
 			ctor: '_Tuple2',
 			_0: 'font-size',
-			_1: A2(
-				_elm_lang$core$Basics_ops['++'],
-				_elm_lang$core$Basics$toString(fontSize),
-				'pt')
+			_1: _user$project$View$pointUnit(fontSize)
 		},
 			{ctor: '_Tuple2', _0: 'vertical-align', _1: 'top'},
 			{ctor: '_Tuple2', _0: 'font-family', _1: 'Segoe UI'}
@@ -7980,13 +7994,14 @@ var _user$project$View$subRuleText = function (description) {
 var _user$project$View$ruleText = function (description) {
 	return _elm_lang$html$Html$text(description);
 };
-var _user$project$View$minRowHeight = 50;
+var _user$project$View$minRowHeight = 25;
 var _user$project$View$subRuleTextSize = 10;
 var _user$project$View$ruleTextSize = 11;
-var _user$project$View$subRuleWidth = '300px';
-var _user$project$View$ruleWidth = '360px';
-var _user$project$View$iconCellWidth = '40px';
-var _user$project$View$mainTableWidth = '400px';
+var _user$project$View$subRuleWidth = 300;
+var _user$project$View$ruleWidth = 360;
+var _user$project$View$iconHeight = 20;
+var _user$project$View$iconCellWidth = 40;
+var _user$project$View$mainTableWidth = 100;
 var _user$project$View$invalidColor = 'black';
 var _user$project$View$partialColor = '#ff8000';
 var _user$project$View$subRule = function (subRule) {
@@ -8000,7 +8015,6 @@ var _user$project$View$subRule = function (subRule) {
 					_elm_lang$core$Native_List.fromArray(
 						[
 							{ctor: '_Tuple2', _0: 'padding', _1: '2px 2px 2px 15px'},
-							{ctor: '_Tuple2', _0: 'width', _1: _user$project$View$subRuleWidth},
 							{ctor: '_Tuple2', _0: 'color', _1: _user$project$View$partialColor}
 						]),
 					_user$project$View$textStyle(_user$project$View$subRuleTextSize)))
@@ -8043,8 +8057,7 @@ var _user$project$View$ruleCell = function (passwordRule) {
 				_elm_lang$html$Html_Attributes$style(
 				_elm_lang$core$Native_List.fromArray(
 					[
-						{ctor: '_Tuple2', _0: 'vertical-align', _1: 'top'},
-						{ctor: '_Tuple2', _0: 'padding-top', _1: '2px'}
+						{ctor: '_Tuple2', _0: 'vertical-align', _1: 'top'}
 					]))
 			]),
 		A2(
@@ -8060,7 +8073,6 @@ var _user$project$View$ruleCell = function (passwordRule) {
 								_elm_lang$core$List$append,
 								_elm_lang$core$Native_List.fromArray(
 									[
-										{ctor: '_Tuple2', _0: 'width', _1: _user$project$View$ruleWidth},
 										{
 										ctor: '_Tuple2',
 										_0: 'color',
@@ -8096,7 +8108,16 @@ var _user$project$View$ruleIcon = function (validity) {
 		_elm_lang$core$Native_List.fromArray(
 			[
 				_elm_lang$html$Html_Attributes$src(
-				_user$project$View$validityIcon(validity))
+				_user$project$View$validityIcon(validity)),
+				_elm_lang$html$Html_Attributes$style(
+				_elm_lang$core$Native_List.fromArray(
+					[
+						{
+						ctor: '_Tuple2',
+						_0: 'height',
+						_1: _user$project$View$pixelUnit(_user$project$View$iconHeight)
+					}
+					]))
 			]),
 		_elm_lang$core$Native_List.fromArray(
 			[]));
@@ -8119,7 +8140,11 @@ var _user$project$View$ruleRow = function (passwordRule) {
 							_elm_lang$html$Html_Attributes$style(
 							_elm_lang$core$Native_List.fromArray(
 								[
-									{ctor: '_Tuple2', _0: 'width', _1: _user$project$View$iconCellWidth},
+									{
+									ctor: '_Tuple2',
+									_0: 'width',
+									_1: _user$project$View$pixelUnit(_user$project$View$iconCellWidth)
+								},
 									{ctor: '_Tuple2', _0: 'vertical-align', _1: 'initial'}
 								]))
 						]),
@@ -8135,10 +8160,7 @@ var _user$project$View$ruleRow = function (passwordRule) {
 											{
 											ctor: '_Tuple2',
 											_0: 'min-height',
-											_1: A2(
-												_elm_lang$core$Basics_ops['++'],
-												_elm_lang$core$Basics$toString(_user$project$View$minRowHeight),
-												'px')
+											_1: _user$project$View$pixelUnit(_user$project$View$minRowHeight)
 										}
 										]))
 								]),
@@ -8173,7 +8195,11 @@ var _user$project$View$layoutTable = function (model) {
 				_elm_lang$html$Html_Attributes$style(
 				_elm_lang$core$Native_List.fromArray(
 					[
-						{ctor: '_Tuple2', _0: 'width', _1: _user$project$View$mainTableWidth}
+						{
+						ctor: '_Tuple2',
+						_0: 'width',
+						_1: _user$project$View$percentUnit(_user$project$View$mainTableWidth)
+					}
 					]))
 			]),
 		_user$project$View$rulesDisplay(model));
@@ -8290,7 +8316,6 @@ var _user$project$Update$recalculateSubRules = F2(
 	});
 var _user$project$Update$passwordRuleValidity = F2(
 	function (password, passwordRule) {
-		var subRuleEmpty = _elm_lang$core$List$isEmpty(passwordRule.subRules);
 		var rulePasswordValid = A2(
 			_elm_lang$core$Regex$contains,
 			_elm_lang$core$Regex$regex(passwordRule.regEx),
@@ -8325,16 +8350,15 @@ var _user$project$Update$recalculateRules = F2(
 			});
 	});
 var _user$project$Update$updateModelValidity = function (model) {
-	var allValid = A2(
-		_elm_lang$core$List$all,
-		function (r) {
-			return _elm_lang$core$Native_Utils.eq(r.validity, _user$project$Types$Yes);
-		},
-		model.rules);
 	return _elm_lang$core$Native_Utils.update(
 		model,
 		{
-			validity: allValid ? _user$project$Types$Yes : _user$project$Types$No
+			validity: A2(
+				_elm_lang$core$List$all,
+				function (r) {
+					return _elm_lang$core$Native_Utils.eq(r.validity, _user$project$Types$Yes);
+				},
+				model.rules) ? _user$project$Types$Yes : _user$project$Types$No
 		});
 };
 var _user$project$Update$update = F2(
