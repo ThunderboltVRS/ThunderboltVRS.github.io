@@ -10082,6 +10082,21 @@ var _stanton_gary$home_time$Main$homeSvg = A2(
 var _stanton_gary$home_time$Main$isHomeTime = function (delta) {
 	return (_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > -1));
 };
+var _stanton_gary$home_time$Main$correctSecond = function (second) {
+	return (_elm_lang$core$Native_Utils.cmp(second, 0) > 0) ? -59 : second;
+};
+var _stanton_gary$home_time$Main$correctMinute = F2(
+	function (minute, second) {
+		return (_elm_lang$core$Native_Utils.cmp(second, 0) > 0) ? (minute + 1) : minute;
+	});
+var _stanton_gary$home_time$Main$correctDelta = function (delta) {
+	return ((_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > -1))) ? delta : _elm_lang$core$Native_Utils.update(
+		delta,
+		{
+			minute: A2(_stanton_gary$home_time$Main$correctMinute, delta.minute, delta.second),
+			second: _stanton_gary$home_time$Main$correctSecond(delta.second)
+		});
+};
 var _stanton_gary$home_time$Main$timeTextFromDelta = function (delta) {
 	return _elm_lang$core$String$concat(
 		_elm_lang$core$Native_List.fromArray(
@@ -10140,7 +10155,8 @@ var _stanton_gary$home_time$Main$contentElements = function (model) {
 						_elm_lang$core$Basics_ops['++'],
 						'+ ',
 						_stanton_gary$home_time$Main$timeTextFromDelta(
-							A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3))))
+							_stanton_gary$home_time$Main$correctDelta(
+								A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
 				]) : _elm_lang$core$Native_List.fromArray(
 				[
 					_elm_lang$html$Html$text(
@@ -10148,7 +10164,8 @@ var _stanton_gary$home_time$Main$contentElements = function (model) {
 						_elm_lang$core$Basics_ops['++'],
 						'- ',
 						_stanton_gary$home_time$Main$timeTextFromDelta(
-							A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3))))
+							_stanton_gary$home_time$Main$correctDelta(
+								A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
 				]);
 		} else {
 			return _elm_lang$core$Native_List.fromArray(
@@ -10213,8 +10230,8 @@ var _stanton_gary$home_time$Main$updateCurrentTimes = F2(
 	});
 var _stanton_gary$home_time$Main$initialModel = {current: _elm_lang$core$Maybe$Nothing, endOfDay: _elm_lang$core$Maybe$Nothing};
 var _stanton_gary$home_time$Main$init = {ctor: '_Tuple2', _0: _stanton_gary$home_time$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
-var _stanton_gary$home_time$Main$homeMinute = 30;
-var _stanton_gary$home_time$Main$homeHour = 17;
+var _stanton_gary$home_time$Main$homeMinute = 45;
+var _stanton_gary$home_time$Main$homeHour = 13;
 var _stanton_gary$home_time$Main$getEndOfDay = function (date) {
 	return A2(
 		_stanton_gary$home_time$Main$getAlteredDate,
