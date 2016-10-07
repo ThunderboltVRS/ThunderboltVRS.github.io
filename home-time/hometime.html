@@ -10082,20 +10082,12 @@ var _stanton_gary$home_time$Main$homeSvg = A2(
 var _stanton_gary$home_time$Main$isHomeTime = function (delta) {
 	return (_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > -1));
 };
-var _stanton_gary$home_time$Main$correctSecond = function (second) {
-	return (_elm_lang$core$Native_Utils.cmp(second, 0) > 0) ? -59 : second;
-};
-var _stanton_gary$home_time$Main$correctMinute = F2(
-	function (minute, second) {
-		return (_elm_lang$core$Native_Utils.cmp(second, 0) > 0) ? (minute + 1) : minute;
-	});
 var _stanton_gary$home_time$Main$correctDelta = function (delta) {
-	return ((_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > -1))) ? delta : _elm_lang$core$Native_Utils.update(
+	return ((_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > -1))) ? delta : (((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) < 0) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > 0)) ? _elm_lang$core$Native_Utils.update(
 		delta,
-		{
-			minute: A2(_stanton_gary$home_time$Main$correctMinute, delta.minute, delta.second),
-			second: _stanton_gary$home_time$Main$correctSecond(delta.second)
-		});
+		{minute: delta.minute + 1, second: -60 + delta.second}) : ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > 0) ? _elm_lang$core$Native_Utils.update(
+		delta,
+		{hour: delta.hour + 1, minute: 59, second: delta.second}) : delta));
 };
 var _stanton_gary$home_time$Main$timeTextFromDelta = function (delta) {
 	return _elm_lang$core$String$concat(
