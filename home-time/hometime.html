@@ -10014,6 +10014,49 @@ var _rluiten$elm_date_extra$Date_Extra_Field$Second = function (a) {
 var _rluiten$elm_date_extra$Date_Extra_Field$Millisecond = function (a) {
 	return {ctor: 'Millisecond', _0: a};
 };
+var _stanton_gary$home_time$Main$countdownClock = function (delta) {
+	var angle = _elm_lang$core$Basics$turns(
+		_elm_lang$core$Basics$toFloat(delta.second + 15) / 60);
+	var handX = _elm_lang$core$Basics$toString(
+		50 + (40 * _elm_lang$core$Basics$cos(angle)));
+	var handY = _elm_lang$core$Basics$toString(
+		50 + (40 * _elm_lang$core$Basics$sin(angle)));
+	return A2(
+		_elm_lang$svg$Svg$svg,
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$svg$Svg_Attributes$viewBox('0 0 100 100'),
+				_elm_lang$svg$Svg_Attributes$width('300px')
+			]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$svg$Svg$circle,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$svg$Svg_Attributes$cx('50'),
+						_elm_lang$svg$Svg_Attributes$cy('50'),
+						_elm_lang$svg$Svg_Attributes$r('45'),
+						_elm_lang$svg$Svg_Attributes$fill('#010101'),
+						_elm_lang$svg$Svg_Attributes$opacity('0.4')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[])),
+				A2(
+				_elm_lang$svg$Svg$line,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$svg$Svg_Attributes$x1('50'),
+						_elm_lang$svg$Svg_Attributes$y1('50'),
+						_elm_lang$svg$Svg_Attributes$x2(handX),
+						_elm_lang$svg$Svg_Attributes$y2(handY),
+						_elm_lang$svg$Svg_Attributes$stroke('#010101'),
+						_elm_lang$svg$Svg_Attributes$opacity('0.8')
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[]))
+			]));
+};
 var _stanton_gary$home_time$Main$homeSvg = A2(
 	_elm_lang$html$Html$div,
 	_elm_lang$core$Native_List.fromArray(
@@ -10079,6 +10122,9 @@ var _stanton_gary$home_time$Main$homeSvg = A2(
 						[]))
 				]))
 		]));
+var _stanton_gary$home_time$Main$isCountdown = function (delta) {
+	return (_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, -30) > -1));
+};
 var _stanton_gary$home_time$Main$isHomeTime = function (delta) {
 	return (_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, 0) > -1));
 };
@@ -10149,6 +10195,39 @@ var _stanton_gary$home_time$Main$contentElements = function (model) {
 						_stanton_gary$home_time$Main$timeTextFromDelta(
 							_stanton_gary$home_time$Main$correctDelta(
 								A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
+				]) : (_stanton_gary$home_time$Main$isCountdown(
+				A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)) ? _elm_lang$core$Native_List.fromArray(
+				[
+					A2(
+					_elm_lang$html$Html$div,
+					_elm_lang$core$Native_List.fromArray(
+						[]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							A2(
+							_elm_lang$html$Html$div,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_elm_lang$html$Html$text(
+									A2(
+										_elm_lang$core$Basics_ops['++'],
+										'- ',
+										_stanton_gary$home_time$Main$timeTextFromDelta(
+											_stanton_gary$home_time$Main$correctDelta(
+												A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
+								])),
+							A2(
+							_elm_lang$html$Html$div,
+							_elm_lang$core$Native_List.fromArray(
+								[]),
+							_elm_lang$core$Native_List.fromArray(
+								[
+									_stanton_gary$home_time$Main$countdownClock(
+									A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3))
+								]))
+						]))
 				]) : _elm_lang$core$Native_List.fromArray(
 				[
 					_elm_lang$html$Html$text(
@@ -10158,7 +10237,7 @@ var _stanton_gary$home_time$Main$contentElements = function (model) {
 						_stanton_gary$home_time$Main$timeTextFromDelta(
 							_stanton_gary$home_time$Main$correctDelta(
 								A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
-				]);
+				]));
 		} else {
 			return _elm_lang$core$Native_List.fromArray(
 				[]);
@@ -10222,8 +10301,8 @@ var _stanton_gary$home_time$Main$updateCurrentTimes = F2(
 	});
 var _stanton_gary$home_time$Main$initialModel = {current: _elm_lang$core$Maybe$Nothing, endOfDay: _elm_lang$core$Maybe$Nothing};
 var _stanton_gary$home_time$Main$init = {ctor: '_Tuple2', _0: _stanton_gary$home_time$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
-var _stanton_gary$home_time$Main$homeMinute = 30;
-var _stanton_gary$home_time$Main$homeHour = 17;
+var _stanton_gary$home_time$Main$homeMinute = 53;
+var _stanton_gary$home_time$Main$homeHour = 19;
 var _stanton_gary$home_time$Main$getEndOfDay = function (date) {
 	return A2(
 		_stanton_gary$home_time$Main$getAlteredDate,
