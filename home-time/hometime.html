@@ -10014,9 +10014,9 @@ var _rluiten$elm_date_extra$Date_Extra_Field$Second = function (a) {
 var _rluiten$elm_date_extra$Date_Extra_Field$Millisecond = function (a) {
 	return {ctor: 'Millisecond', _0: a};
 };
-var _stanton_gary$home_time$Main$countdownClock = function (delta) {
+var _stanton_gary$home_time$Main$countdownClock = function (seconds) {
 	var angle = _elm_lang$core$Basics$turns(
-		_elm_lang$core$Basics$toFloat(delta.second + 15) / 60);
+		_elm_lang$core$Basics$toFloat(seconds + 15) / 60);
 	var handX = _elm_lang$core$Basics$toString(
 		50 + (40 * _elm_lang$core$Basics$cos(angle)));
 	var handY = _elm_lang$core$Basics$toString(
@@ -10122,6 +10122,12 @@ var _stanton_gary$home_time$Main$homeSvg = A2(
 						[]))
 				]))
 		]));
+var _stanton_gary$home_time$Main$doubleDigit = function (value) {
+	return (_elm_lang$core$Native_Utils.cmp(value, 10) < 0) ? A2(
+		_elm_lang$core$Basics_ops['++'],
+		'0',
+		_elm_lang$core$Basics$toString(value)) : _elm_lang$core$Basics$toString(value);
+};
 var _stanton_gary$home_time$Main$isCountdown = function (delta) {
 	return (_elm_lang$core$Native_Utils.cmp(delta.hour, 0) > -1) && ((_elm_lang$core$Native_Utils.cmp(delta.minute, 0) > -1) && (_elm_lang$core$Native_Utils.cmp(delta.second, -30) > -1));
 };
@@ -10142,10 +10148,10 @@ var _stanton_gary$home_time$Main$timeTextFromDelta = function (delta) {
 				_elm_lang$core$Basics$toString(
 				_elm_lang$core$Basics$abs(delta.hour)),
 				' Hours ',
-				_elm_lang$core$Basics$toString(
+				_stanton_gary$home_time$Main$doubleDigit(
 				_elm_lang$core$Basics$abs(delta.minute)),
 				' Minutes ',
-				_elm_lang$core$Basics$toString(
+				_stanton_gary$home_time$Main$doubleDigit(
 				_elm_lang$core$Basics$abs(delta.second)),
 				' Seconds '
 			]));
@@ -10225,18 +10231,25 @@ var _stanton_gary$home_time$Main$contentElements = function (model) {
 							_elm_lang$core$Native_List.fromArray(
 								[
 									_stanton_gary$home_time$Main$countdownClock(
-									A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3))
+									A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3).second)
 								]))
 						]))
 				]) : _elm_lang$core$Native_List.fromArray(
 				[
-					_elm_lang$html$Html$text(
 					A2(
-						_elm_lang$core$Basics_ops['++'],
-						'- ',
-						_stanton_gary$home_time$Main$timeTextFromDelta(
-							_stanton_gary$home_time$Main$correctDelta(
-								A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
+					_elm_lang$html$Html$div,
+					_elm_lang$core$Native_List.fromArray(
+						[]),
+					_elm_lang$core$Native_List.fromArray(
+						[
+							_elm_lang$html$Html$text(
+							A2(
+								_elm_lang$core$Basics_ops['++'],
+								'- ',
+								_stanton_gary$home_time$Main$timeTextFromDelta(
+									_stanton_gary$home_time$Main$correctDelta(
+										A2(_stanton_gary$home_time$Main$getDiff, _p4, _p3)))))
+						]))
 				]));
 		} else {
 			return _elm_lang$core$Native_List.fromArray(
@@ -10302,7 +10315,7 @@ var _stanton_gary$home_time$Main$updateCurrentTimes = F2(
 var _stanton_gary$home_time$Main$initialModel = {current: _elm_lang$core$Maybe$Nothing, endOfDay: _elm_lang$core$Maybe$Nothing};
 var _stanton_gary$home_time$Main$init = {ctor: '_Tuple2', _0: _stanton_gary$home_time$Main$initialModel, _1: _elm_lang$core$Platform_Cmd$none};
 var _stanton_gary$home_time$Main$homeMinute = 30;
-var _stanton_gary$home_time$Main$homeHour = 7;
+var _stanton_gary$home_time$Main$homeHour = 17;
 var _stanton_gary$home_time$Main$getEndOfDay = function (date) {
 	return A2(
 		_stanton_gary$home_time$Main$getAlteredDate,
