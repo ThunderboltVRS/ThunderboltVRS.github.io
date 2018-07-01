@@ -1,0 +1,85 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<head>
+<style>
+.grid-container {
+  display: grid;
+  background-color: white;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 60px 1fr;
+}
+.grid-item {
+  background-color: white;
+  padding: 20px;
+}
+.search-item {
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+.chart-item {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 350px;
+}
+.table-item {
+  grid-column: 1;
+  grid-row: 2;
+}
+</style>
+</head>
+
+<div id="elmContainer" style="height: 400px;">
+</div>
+<script src="../Javascript/office-songs.js"></script>
+<script>
+    var node = document.getElementById('elmContainer');
+    var app = Elm.Main.embed(node, {
+		"showPercentages" : false
+		,"requests": [
+  {
+    "requesterName": "Bob",
+    "artistName": "Aretha Franklin",
+    "songName": "Respect"
+  },
+  {
+    "requesterName": "Bob",
+    "artistName": "Bob Marley",
+    "songName": "No Woman No Cry"
+  },
+  {
+    "requesterName": "Alice",
+    "artistName": "Chuck Berry",
+    "songName": "Johnny B. Goode"
+  },
+  {
+    "requesterName": "Alice",
+    "artistName": "Marvin Gaye",
+    "songName": "I Heard It Through The Grapevine"
+  },
+  {
+    "requesterName": "Alice",
+    "artistName": "Donna Summer",
+    "songName": "Hot Stuff"
+  },
+  {
+    "requesterName": "Alice",
+    "artistName": "Van Morrison",
+    "songName": "Brown Eyed Girl"
+  },
+  {
+    "requesterName": "Alice",
+    "artistName": "Little Richard",
+    "songName": "Tutti Frutti"
+  },
+  {
+    "requesterName": "Bob",
+    "artistName": "Otis Redding",
+    "songName": "The Dock of the Bay"
+  },
+  {
+    "requesterName": "Bob",
+    "artistName": "Janis Joplin",
+    "songName": "Piece of My Heart"
+  },
+]
+	});
+</script>
