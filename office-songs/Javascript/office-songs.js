@@ -15639,6 +15639,34 @@ var _debois$elm_mdl$Material_Table$descending = _debois$elm_mdl$Material_Table$s
 var _debois$elm_mdl$Material_Table$Ascending = {ctor: 'Ascending'};
 var _debois$elm_mdl$Material_Table$ascending = _debois$elm_mdl$Material_Table$sorted(_debois$elm_mdl$Material_Table$Ascending);
 
+var _debois$elm_mdl$Material_Typography$uppercase = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-uppercase');
+var _debois$elm_mdl$Material_Typography$lowercase = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-lowercase');
+var _debois$elm_mdl$Material_Typography$capitalize = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-capitalize');
+var _debois$elm_mdl$Material_Typography$justify = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-justify');
+var _debois$elm_mdl$Material_Typography$right = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-right');
+var _debois$elm_mdl$Material_Typography$left = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-left');
+var _debois$elm_mdl$Material_Typography$center = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-center');
+var _debois$elm_mdl$Material_Typography$tableStriped = _debois$elm_mdl$Material_Options$cs('mdl-typography--table-striped');
+var _debois$elm_mdl$Material_Typography$nowrap = _debois$elm_mdl$Material_Options$cs('mdl-typography--text-nowrap');
+var _debois$elm_mdl$Material_Typography$contrast = function (x) {
+	return A2(
+		_debois$elm_mdl$Material_Options$css,
+		'opacity',
+		_elm_lang$core$Basics$toString(x));
+};
+var _debois$elm_mdl$Material_Typography$menu = _debois$elm_mdl$Material_Options$cs('mdl-typography--menu-color-contrast');
+var _debois$elm_mdl$Material_Typography$button = _debois$elm_mdl$Material_Options$cs('mdl-typography--button-color-contrast');
+var _debois$elm_mdl$Material_Typography$caption = _debois$elm_mdl$Material_Options$cs('mdl-typography--caption-force-preferred-font-color-contrast');
+var _debois$elm_mdl$Material_Typography$body2 = _debois$elm_mdl$Material_Options$cs('mdl-typography--body-2-force-preferred-font-color-contrast');
+var _debois$elm_mdl$Material_Typography$body1 = _debois$elm_mdl$Material_Options$cs('mdl-typography--body-1-force-preferred-font-color-contrast');
+var _debois$elm_mdl$Material_Typography$subhead = _debois$elm_mdl$Material_Options$cs('mdl-typography--subhead-color-contrast');
+var _debois$elm_mdl$Material_Typography$title = _debois$elm_mdl$Material_Options$cs('mdl-typography--title-color-contrast');
+var _debois$elm_mdl$Material_Typography$headline = _debois$elm_mdl$Material_Options$cs('mdl-typography--headline-color-contrast');
+var _debois$elm_mdl$Material_Typography$display4 = _debois$elm_mdl$Material_Options$cs('mdl-typography--display-4-color-contrast');
+var _debois$elm_mdl$Material_Typography$display3 = _debois$elm_mdl$Material_Options$cs('mdl-typography--display-3-color-contrast');
+var _debois$elm_mdl$Material_Typography$display2 = _debois$elm_mdl$Material_Options$cs('mdl-typography--display-2-color-contrast');
+var _debois$elm_mdl$Material_Typography$display1 = _debois$elm_mdl$Material_Options$cs('mdl-typography--display-1-color-contrast');
+
 var _elm_lang$core$Set$foldr = F3(
 	function (f, b, _p0) {
 		var _p1 = _p0;
@@ -17207,6 +17235,385 @@ var _elm_community$list_extra$List_Extra$last = function (items) {
 	}
 };
 
+var _elm_lang$core$Random$onSelfMsg = F3(
+	function (_p1, _p0, seed) {
+		return _elm_lang$core$Task$succeed(seed);
+	});
+var _elm_lang$core$Random$magicNum8 = 2147483562;
+var _elm_lang$core$Random$range = function (_p2) {
+	return {ctor: '_Tuple2', _0: 0, _1: _elm_lang$core$Random$magicNum8};
+};
+var _elm_lang$core$Random$magicNum7 = 2147483399;
+var _elm_lang$core$Random$magicNum6 = 2147483563;
+var _elm_lang$core$Random$magicNum5 = 3791;
+var _elm_lang$core$Random$magicNum4 = 40692;
+var _elm_lang$core$Random$magicNum3 = 52774;
+var _elm_lang$core$Random$magicNum2 = 12211;
+var _elm_lang$core$Random$magicNum1 = 53668;
+var _elm_lang$core$Random$magicNum0 = 40014;
+var _elm_lang$core$Random$step = F2(
+	function (_p3, seed) {
+		var _p4 = _p3;
+		return _p4._0(seed);
+	});
+var _elm_lang$core$Random$onEffects = F3(
+	function (router, commands, seed) {
+		var _p5 = commands;
+		if (_p5.ctor === '[]') {
+			return _elm_lang$core$Task$succeed(seed);
+		} else {
+			var _p6 = A2(_elm_lang$core$Random$step, _p5._0._0, seed);
+			var value = _p6._0;
+			var newSeed = _p6._1;
+			return A2(
+				_elm_lang$core$Task$andThen,
+				function (_p7) {
+					return A3(_elm_lang$core$Random$onEffects, router, _p5._1, newSeed);
+				},
+				A2(_elm_lang$core$Platform$sendToApp, router, value));
+		}
+	});
+var _elm_lang$core$Random$listHelp = F4(
+	function (list, n, generate, seed) {
+		listHelp:
+		while (true) {
+			if (_elm_lang$core$Native_Utils.cmp(n, 1) < 0) {
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$List$reverse(list),
+					_1: seed
+				};
+			} else {
+				var _p8 = generate(seed);
+				var value = _p8._0;
+				var newSeed = _p8._1;
+				var _v2 = {ctor: '::', _0: value, _1: list},
+					_v3 = n - 1,
+					_v4 = generate,
+					_v5 = newSeed;
+				list = _v2;
+				n = _v3;
+				generate = _v4;
+				seed = _v5;
+				continue listHelp;
+			}
+		}
+	});
+var _elm_lang$core$Random$minInt = -2147483648;
+var _elm_lang$core$Random$maxInt = 2147483647;
+var _elm_lang$core$Random$iLogBase = F2(
+	function (b, i) {
+		return (_elm_lang$core$Native_Utils.cmp(i, b) < 0) ? 1 : (1 + A2(_elm_lang$core$Random$iLogBase, b, (i / b) | 0));
+	});
+var _elm_lang$core$Random$command = _elm_lang$core$Native_Platform.leaf('Random');
+var _elm_lang$core$Random$Generator = function (a) {
+	return {ctor: 'Generator', _0: a};
+};
+var _elm_lang$core$Random$list = F2(
+	function (n, _p9) {
+		var _p10 = _p9;
+		return _elm_lang$core$Random$Generator(
+			function (seed) {
+				return A4(
+					_elm_lang$core$Random$listHelp,
+					{ctor: '[]'},
+					n,
+					_p10._0,
+					seed);
+			});
+	});
+var _elm_lang$core$Random$map = F2(
+	function (func, _p11) {
+		var _p12 = _p11;
+		return _elm_lang$core$Random$Generator(
+			function (seed0) {
+				var _p13 = _p12._0(seed0);
+				var a = _p13._0;
+				var seed1 = _p13._1;
+				return {
+					ctor: '_Tuple2',
+					_0: func(a),
+					_1: seed1
+				};
+			});
+	});
+var _elm_lang$core$Random$map2 = F3(
+	function (func, _p15, _p14) {
+		var _p16 = _p15;
+		var _p17 = _p14;
+		return _elm_lang$core$Random$Generator(
+			function (seed0) {
+				var _p18 = _p16._0(seed0);
+				var a = _p18._0;
+				var seed1 = _p18._1;
+				var _p19 = _p17._0(seed1);
+				var b = _p19._0;
+				var seed2 = _p19._1;
+				return {
+					ctor: '_Tuple2',
+					_0: A2(func, a, b),
+					_1: seed2
+				};
+			});
+	});
+var _elm_lang$core$Random$pair = F2(
+	function (genA, genB) {
+		return A3(
+			_elm_lang$core$Random$map2,
+			F2(
+				function (v0, v1) {
+					return {ctor: '_Tuple2', _0: v0, _1: v1};
+				}),
+			genA,
+			genB);
+	});
+var _elm_lang$core$Random$map3 = F4(
+	function (func, _p22, _p21, _p20) {
+		var _p23 = _p22;
+		var _p24 = _p21;
+		var _p25 = _p20;
+		return _elm_lang$core$Random$Generator(
+			function (seed0) {
+				var _p26 = _p23._0(seed0);
+				var a = _p26._0;
+				var seed1 = _p26._1;
+				var _p27 = _p24._0(seed1);
+				var b = _p27._0;
+				var seed2 = _p27._1;
+				var _p28 = _p25._0(seed2);
+				var c = _p28._0;
+				var seed3 = _p28._1;
+				return {
+					ctor: '_Tuple2',
+					_0: A3(func, a, b, c),
+					_1: seed3
+				};
+			});
+	});
+var _elm_lang$core$Random$map4 = F5(
+	function (func, _p32, _p31, _p30, _p29) {
+		var _p33 = _p32;
+		var _p34 = _p31;
+		var _p35 = _p30;
+		var _p36 = _p29;
+		return _elm_lang$core$Random$Generator(
+			function (seed0) {
+				var _p37 = _p33._0(seed0);
+				var a = _p37._0;
+				var seed1 = _p37._1;
+				var _p38 = _p34._0(seed1);
+				var b = _p38._0;
+				var seed2 = _p38._1;
+				var _p39 = _p35._0(seed2);
+				var c = _p39._0;
+				var seed3 = _p39._1;
+				var _p40 = _p36._0(seed3);
+				var d = _p40._0;
+				var seed4 = _p40._1;
+				return {
+					ctor: '_Tuple2',
+					_0: A4(func, a, b, c, d),
+					_1: seed4
+				};
+			});
+	});
+var _elm_lang$core$Random$map5 = F6(
+	function (func, _p45, _p44, _p43, _p42, _p41) {
+		var _p46 = _p45;
+		var _p47 = _p44;
+		var _p48 = _p43;
+		var _p49 = _p42;
+		var _p50 = _p41;
+		return _elm_lang$core$Random$Generator(
+			function (seed0) {
+				var _p51 = _p46._0(seed0);
+				var a = _p51._0;
+				var seed1 = _p51._1;
+				var _p52 = _p47._0(seed1);
+				var b = _p52._0;
+				var seed2 = _p52._1;
+				var _p53 = _p48._0(seed2);
+				var c = _p53._0;
+				var seed3 = _p53._1;
+				var _p54 = _p49._0(seed3);
+				var d = _p54._0;
+				var seed4 = _p54._1;
+				var _p55 = _p50._0(seed4);
+				var e = _p55._0;
+				var seed5 = _p55._1;
+				return {
+					ctor: '_Tuple2',
+					_0: A5(func, a, b, c, d, e),
+					_1: seed5
+				};
+			});
+	});
+var _elm_lang$core$Random$andThen = F2(
+	function (callback, _p56) {
+		var _p57 = _p56;
+		return _elm_lang$core$Random$Generator(
+			function (seed) {
+				var _p58 = _p57._0(seed);
+				var result = _p58._0;
+				var newSeed = _p58._1;
+				var _p59 = callback(result);
+				var genB = _p59._0;
+				return genB(newSeed);
+			});
+	});
+var _elm_lang$core$Random$State = F2(
+	function (a, b) {
+		return {ctor: 'State', _0: a, _1: b};
+	});
+var _elm_lang$core$Random$initState = function (seed) {
+	var s = A2(_elm_lang$core$Basics$max, seed, 0 - seed);
+	var q = (s / (_elm_lang$core$Random$magicNum6 - 1)) | 0;
+	var s2 = A2(_elm_lang$core$Basics_ops['%'], q, _elm_lang$core$Random$magicNum7 - 1);
+	var s1 = A2(_elm_lang$core$Basics_ops['%'], s, _elm_lang$core$Random$magicNum6 - 1);
+	return A2(_elm_lang$core$Random$State, s1 + 1, s2 + 1);
+};
+var _elm_lang$core$Random$next = function (_p60) {
+	var _p61 = _p60;
+	var _p63 = _p61._1;
+	var _p62 = _p61._0;
+	var k2 = (_p63 / _elm_lang$core$Random$magicNum3) | 0;
+	var rawState2 = (_elm_lang$core$Random$magicNum4 * (_p63 - (k2 * _elm_lang$core$Random$magicNum3))) - (k2 * _elm_lang$core$Random$magicNum5);
+	var newState2 = (_elm_lang$core$Native_Utils.cmp(rawState2, 0) < 0) ? (rawState2 + _elm_lang$core$Random$magicNum7) : rawState2;
+	var k1 = (_p62 / _elm_lang$core$Random$magicNum1) | 0;
+	var rawState1 = (_elm_lang$core$Random$magicNum0 * (_p62 - (k1 * _elm_lang$core$Random$magicNum1))) - (k1 * _elm_lang$core$Random$magicNum2);
+	var newState1 = (_elm_lang$core$Native_Utils.cmp(rawState1, 0) < 0) ? (rawState1 + _elm_lang$core$Random$magicNum6) : rawState1;
+	var z = newState1 - newState2;
+	var newZ = (_elm_lang$core$Native_Utils.cmp(z, 1) < 0) ? (z + _elm_lang$core$Random$magicNum8) : z;
+	return {
+		ctor: '_Tuple2',
+		_0: newZ,
+		_1: A2(_elm_lang$core$Random$State, newState1, newState2)
+	};
+};
+var _elm_lang$core$Random$split = function (_p64) {
+	var _p65 = _p64;
+	var _p68 = _p65._1;
+	var _p67 = _p65._0;
+	var _p66 = _elm_lang$core$Tuple$second(
+		_elm_lang$core$Random$next(_p65));
+	var t1 = _p66._0;
+	var t2 = _p66._1;
+	var new_s2 = _elm_lang$core$Native_Utils.eq(_p68, 1) ? (_elm_lang$core$Random$magicNum7 - 1) : (_p68 - 1);
+	var new_s1 = _elm_lang$core$Native_Utils.eq(_p67, _elm_lang$core$Random$magicNum6 - 1) ? 1 : (_p67 + 1);
+	return {
+		ctor: '_Tuple2',
+		_0: A2(_elm_lang$core$Random$State, new_s1, t2),
+		_1: A2(_elm_lang$core$Random$State, t1, new_s2)
+	};
+};
+var _elm_lang$core$Random$Seed = function (a) {
+	return {ctor: 'Seed', _0: a};
+};
+var _elm_lang$core$Random$int = F2(
+	function (a, b) {
+		return _elm_lang$core$Random$Generator(
+			function (_p69) {
+				var _p70 = _p69;
+				var _p75 = _p70._0;
+				var base = 2147483561;
+				var f = F3(
+					function (n, acc, state) {
+						f:
+						while (true) {
+							var _p71 = n;
+							if (_p71 === 0) {
+								return {ctor: '_Tuple2', _0: acc, _1: state};
+							} else {
+								var _p72 = _p75.next(state);
+								var x = _p72._0;
+								var nextState = _p72._1;
+								var _v27 = n - 1,
+									_v28 = x + (acc * base),
+									_v29 = nextState;
+								n = _v27;
+								acc = _v28;
+								state = _v29;
+								continue f;
+							}
+						}
+					});
+				var _p73 = (_elm_lang$core$Native_Utils.cmp(a, b) < 0) ? {ctor: '_Tuple2', _0: a, _1: b} : {ctor: '_Tuple2', _0: b, _1: a};
+				var lo = _p73._0;
+				var hi = _p73._1;
+				var k = (hi - lo) + 1;
+				var n = A2(_elm_lang$core$Random$iLogBase, base, k);
+				var _p74 = A3(f, n, 1, _p75.state);
+				var v = _p74._0;
+				var nextState = _p74._1;
+				return {
+					ctor: '_Tuple2',
+					_0: lo + A2(_elm_lang$core$Basics_ops['%'], v, k),
+					_1: _elm_lang$core$Random$Seed(
+						_elm_lang$core$Native_Utils.update(
+							_p75,
+							{state: nextState}))
+				};
+			});
+	});
+var _elm_lang$core$Random$bool = A2(
+	_elm_lang$core$Random$map,
+	F2(
+		function (x, y) {
+			return _elm_lang$core$Native_Utils.eq(x, y);
+		})(1),
+	A2(_elm_lang$core$Random$int, 0, 1));
+var _elm_lang$core$Random$float = F2(
+	function (a, b) {
+		return _elm_lang$core$Random$Generator(
+			function (seed) {
+				var _p76 = A2(
+					_elm_lang$core$Random$step,
+					A2(_elm_lang$core$Random$int, _elm_lang$core$Random$minInt, _elm_lang$core$Random$maxInt),
+					seed);
+				var number = _p76._0;
+				var newSeed = _p76._1;
+				var negativeOneToOne = _elm_lang$core$Basics$toFloat(number) / _elm_lang$core$Basics$toFloat(_elm_lang$core$Random$maxInt - _elm_lang$core$Random$minInt);
+				var _p77 = (_elm_lang$core$Native_Utils.cmp(a, b) < 0) ? {ctor: '_Tuple2', _0: a, _1: b} : {ctor: '_Tuple2', _0: b, _1: a};
+				var lo = _p77._0;
+				var hi = _p77._1;
+				var scaled = ((lo + hi) / 2) + ((hi - lo) * negativeOneToOne);
+				return {ctor: '_Tuple2', _0: scaled, _1: newSeed};
+			});
+	});
+var _elm_lang$core$Random$initialSeed = function (n) {
+	return _elm_lang$core$Random$Seed(
+		{
+			state: _elm_lang$core$Random$initState(n),
+			next: _elm_lang$core$Random$next,
+			split: _elm_lang$core$Random$split,
+			range: _elm_lang$core$Random$range
+		});
+};
+var _elm_lang$core$Random$init = A2(
+	_elm_lang$core$Task$andThen,
+	function (t) {
+		return _elm_lang$core$Task$succeed(
+			_elm_lang$core$Random$initialSeed(
+				_elm_lang$core$Basics$round(t)));
+	},
+	_elm_lang$core$Time$now);
+var _elm_lang$core$Random$Generate = function (a) {
+	return {ctor: 'Generate', _0: a};
+};
+var _elm_lang$core$Random$generate = F2(
+	function (tagger, generator) {
+		return _elm_lang$core$Random$command(
+			_elm_lang$core$Random$Generate(
+				A2(_elm_lang$core$Random$map, tagger, generator)));
+	});
+var _elm_lang$core$Random$cmdMap = F2(
+	function (func, _p78) {
+		var _p79 = _p78;
+		return _elm_lang$core$Random$Generate(
+			A2(_elm_lang$core$Random$map, func, _p79._0));
+	});
+_elm_lang$core$Native_Platform.effectManagers['Random'] = {pkg: 'elm-lang/core', init: _elm_lang$core$Random$init, onEffects: _elm_lang$core$Random$onEffects, onSelfMsg: _elm_lang$core$Random$onSelfMsg, tag: 'cmd', cmdMap: _elm_lang$core$Random$cmdMap};
+
 var _elm_lang$svg$Svg$map = _elm_lang$virtual_dom$VirtualDom$map;
 var _elm_lang$svg$Svg$text = _elm_lang$virtual_dom$VirtualDom$text;
 var _elm_lang$svg$Svg$svgNamespace = A2(
@@ -18247,24 +18654,204 @@ var _juanedi$charty$Charty_PieChart$Slice = F3(
 		return {label: a, percentage: b, color: c};
 	});
 
+var _user$project$RandomUtil$extractValueHelper = F3(
+	function (values, index, accumulator) {
+		extractValueHelper:
+		while (true) {
+			var _p0 = {ctor: '_Tuple2', _0: index, _1: values};
+			if (_p0._1.ctor === '[]') {
+				return _elm_lang$core$Native_Utils.crashCase(
+					'RandomUtil',
+					{
+						start: {line: 11, column: 5},
+						end: {line: 19, column: 71}
+					},
+					_p0)('Out of values to extract');
+			} else {
+				if (_p0._0 === 0) {
+					return {
+						ctor: '_Tuple2',
+						_0: _p0._1._0,
+						_1: A2(
+							_elm_lang$core$List$append,
+							_elm_lang$core$List$reverse(accumulator),
+							_p0._1._1)
+					};
+				} else {
+					var _v1 = _p0._1._1,
+						_v2 = index - 1,
+						_v3 = {ctor: '::', _0: _p0._1._0, _1: accumulator};
+					values = _v1;
+					index = _v2;
+					accumulator = _v3;
+					continue extractValueHelper;
+				}
+			}
+		}
+	});
+var _user$project$RandomUtil$extractValue = F2(
+	function (values, index) {
+		return A3(
+			_user$project$RandomUtil$extractValueHelper,
+			values,
+			index,
+			{ctor: '[]'});
+	});
+var _user$project$RandomUtil$shuffle = function (values) {
+	var _p2 = values;
+	if (_p2.ctor === '[]') {
+		return A2(
+			_elm_lang$core$Random$map,
+			function (_p3) {
+				return {ctor: '[]'};
+			},
+			_elm_lang$core$Random$bool);
+	} else {
+		var _p5 = _p2;
+		var extractAndRecurse = function (index) {
+			var _p4 = A2(_user$project$RandomUtil$extractValue, _p5, index);
+			var randomHead = _p4._0;
+			var remainder = _p4._1;
+			var remainderGen = _user$project$RandomUtil$shuffle(remainder);
+			return A2(
+				_elm_lang$core$Random$map,
+				function (randomTail) {
+					return {ctor: '::', _0: randomHead, _1: randomTail};
+				},
+				remainderGen);
+		};
+		var randomIndexGenerator = A2(
+			_elm_lang$core$Random$int,
+			0,
+			_elm_lang$core$List$length(_p5) - 1);
+		return A2(_elm_lang$core$Random$andThen, extractAndRecurse, randomIndexGenerator);
+	}
+};
+
 var _user$project$Types$SongRequest = F3(
 	function (a, b, c) {
 		return {requesterName: a, artistName: b, songName: c};
 	});
-var _user$project$Types$Model = F6(
-	function (a, b, c, d, e, f) {
-		return {mdl: a, searchString: b, allRequests: c, searchedRequests: d, people: e, showPercentages: f};
+var _user$project$Types$Model = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {mdl: a, searchSongsString: b, searchRequestersString: c, allRequests: d, searchedRequests: e, people: f, showPercentages: g, randomSeed: h};
 	});
-var _user$project$Types$Flags = F2(
-	function (a, b) {
-		return {requests: a, showPercentages: b};
+var _user$project$Types$Flags = F3(
+	function (a, b, c) {
+		return {randomSeed: a, requests: b, showPercentages: c};
 	});
-var _user$project$Types$Search = function (a) {
-	return {ctor: 'Search', _0: a};
+var _user$project$Types$SearchRequesters = function (a) {
+	return {ctor: 'SearchRequesters', _0: a};
+};
+var _user$project$Types$SearchSongs = function (a) {
+	return {ctor: 'SearchSongs', _0: a};
 };
 var _user$project$Types$Mdl = function (a) {
 	return {ctor: 'Mdl', _0: a};
 };
+
+var _user$project$States$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$batch(
+		{ctor: '[]'});
+};
+var _user$project$States$shuffleRequests = F2(
+	function (seed, songs) {
+		return A2(
+			_elm_lang$core$Random$step,
+			_user$project$RandomUtil$shuffle(songs),
+			seed);
+	});
+var _user$project$States$initialModel = function (flags) {
+	var suffleResult = A2(
+		_user$project$States$shuffleRequests,
+		_elm_lang$core$Random$initialSeed(
+			_elm_lang$core$Basics$round(flags.randomSeed)),
+		flags.requests);
+	return {
+		mdl: _debois$elm_mdl$Material$model,
+		searchSongsString: '',
+		searchRequestersString: '',
+		allRequests: _elm_lang$core$Tuple$first(suffleResult),
+		searchedRequests: _elm_lang$core$Tuple$first(suffleResult),
+		people: A2(
+			_elm_community$list_extra$List_Extra$uniqueBy,
+			_elm_lang$core$Basics$toString,
+			A2(
+				_elm_lang$core$List$map,
+				function (_) {
+					return _.requesterName;
+				},
+				flags.requests)),
+		showPercentages: flags.showPercentages,
+		randomSeed: _elm_lang$core$Tuple$second(suffleResult)
+	};
+};
+var _user$project$States$initialModelWithFlags = function (flags) {
+	return {
+		ctor: '_Tuple2',
+		_0: _user$project$States$initialModel(flags),
+		_1: _elm_lang$core$Platform_Cmd$none
+	};
+};
+
+var _user$project$Update$match = F2(
+	function (conatined, inside) {
+		return A2(
+			_elm_lang$core$Regex$contains,
+			_elm_lang$core$Regex$caseInsensitive(
+				_elm_lang$core$Regex$regex(conatined)),
+			inside);
+	});
+var _user$project$Update$matchesSearch = F3(
+	function (songRequest, searchSongsText, searchRequestersText) {
+		return (A2(_user$project$Update$match, searchSongsText, songRequest.artistName) || A2(_user$project$Update$match, searchSongsText, songRequest.songName)) && (_elm_lang$core$Native_Utils.eq(searchRequestersText, '') || A2(_user$project$Update$match, searchRequestersText, songRequest.requesterName));
+	});
+var _user$project$Update$filterResultsOnSearch = function (model) {
+	return _elm_lang$core$Native_Utils.update(
+		model,
+		{
+			searchedRequests: A2(
+				_elm_lang$core$List$filter,
+				function (i) {
+					return A3(_user$project$Update$matchesSearch, i, model.searchSongsString, model.searchRequestersString);
+				},
+				model.allRequests)
+		});
+};
+var _user$project$Update$updateRequesterSearchString = F2(
+	function (model, searchText) {
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{searchRequestersString: searchText});
+	});
+var _user$project$Update$updateSongSearchString = F2(
+	function (model, searchText) {
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{searchSongsString: searchText});
+	});
+var _user$project$Update$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		switch (_p0.ctor) {
+			case 'Mdl':
+				return A3(_debois$elm_mdl$Material$update, _user$project$Types$Mdl, _p0._0, model);
+			case 'SearchSongs':
+				return {
+					ctor: '_Tuple2',
+					_0: _user$project$Update$filterResultsOnSearch(
+						A2(_user$project$Update$updateSongSearchString, model, _p0._0)),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			default:
+				return {
+					ctor: '_Tuple2',
+					_0: _user$project$Update$filterResultsOnSearch(
+						A2(_user$project$Update$updateRequesterSearchString, model, _p0._0)),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+		}
+	});
 
 var _user$project$View$countPerPerson = F2(
 	function (personName, songRequests) {
@@ -18390,7 +18977,7 @@ var _user$project$View$mainTable = function (model) {
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Requester'),
+									_0: _elm_lang$html$Html$text('Artist'),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -18400,7 +18987,7 @@ var _user$project$View$mainTable = function (model) {
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Artist'),
+										_0: _elm_lang$html$Html$text('Song'),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -18410,7 +18997,7 @@ var _user$project$View$mainTable = function (model) {
 										{ctor: '[]'},
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html$text('Song'),
+											_0: _elm_lang$html$Html$text('Requester'),
 											_1: {ctor: '[]'}
 										}),
 									_1: {ctor: '[]'}
@@ -18437,7 +19024,7 @@ var _user$project$View$mainTable = function (model) {
 										{ctor: '[]'},
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html$text(request.requesterName),
+											_0: _elm_lang$html$Html$text(request.artistName),
 											_1: {ctor: '[]'}
 										}),
 									_1: {
@@ -18447,7 +19034,7 @@ var _user$project$View$mainTable = function (model) {
 											{ctor: '[]'},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text(request.artistName),
+												_0: _elm_lang$html$Html$text(request.songName),
 												_1: {ctor: '[]'}
 											}),
 										_1: {
@@ -18457,7 +19044,7 @@ var _user$project$View$mainTable = function (model) {
 												{ctor: '[]'},
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html$text(request.songName),
+													_0: _elm_lang$html$Html$text(request.requesterName),
 													_1: {ctor: '[]'}
 												}),
 											_1: {ctor: '[]'}
@@ -18470,7 +19057,44 @@ var _user$project$View$mainTable = function (model) {
 			}
 		});
 };
-var _user$project$View$searchBox = function (model) {
+var _user$project$View$searchRequestersBox = function (model) {
+	return A5(
+		_debois$elm_mdl$Material_Textfield$render,
+		_user$project$Types$Mdl,
+		{
+			ctor: '::',
+			_0: 1,
+			_1: {ctor: '[]'}
+		},
+		model.mdl,
+		{
+			ctor: '::',
+			_0: _debois$elm_mdl$Material_Options$onInput(_user$project$Types$SearchRequesters),
+			_1: {
+				ctor: '::',
+				_0: _debois$elm_mdl$Material_Textfield$autofocus,
+				_1: {
+					ctor: '::',
+					_0: _debois$elm_mdl$Material_Textfield$label('Search Requesters'),
+					_1: {
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Textfield$floatingLabel,
+						_1: {
+							ctor: '::',
+							_0: _debois$elm_mdl$Material_Textfield$text_,
+							_1: {
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Textfield$value(model.searchRequestersString),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
+				}
+			}
+		},
+		{ctor: '[]'});
+};
+var _user$project$View$searchSongsBox = function (model) {
 	return A5(
 		_debois$elm_mdl$Material_Textfield$render,
 		_user$project$Types$Mdl,
@@ -18482,18 +19106,60 @@ var _user$project$View$searchBox = function (model) {
 		model.mdl,
 		{
 			ctor: '::',
-			_0: _debois$elm_mdl$Material_Options$onInput(_user$project$Types$Search),
+			_0: _debois$elm_mdl$Material_Options$onInput(_user$project$Types$SearchSongs),
 			_1: {
 				ctor: '::',
-				_0: _debois$elm_mdl$Material_Textfield$label('Search by Artist or Song'),
+				_0: _debois$elm_mdl$Material_Textfield$autofocus,
 				_1: {
 					ctor: '::',
-					_0: _debois$elm_mdl$Material_Textfield$floatingLabel,
-					_1: {ctor: '[]'}
+					_0: _debois$elm_mdl$Material_Textfield$label('Search by Artist or Song'),
+					_1: {
+						ctor: '::',
+						_0: _debois$elm_mdl$Material_Textfield$floatingLabel,
+						_1: {
+							ctor: '::',
+							_0: _debois$elm_mdl$Material_Textfield$text_,
+							_1: {
+								ctor: '::',
+								_0: _debois$elm_mdl$Material_Textfield$value(model.searchSongsString),
+								_1: {ctor: '[]'}
+							}
+						}
+					}
 				}
 			}
 		},
 		{ctor: '[]'});
+};
+var _user$project$View$counter = function (model) {
+	return A3(
+		_debois$elm_mdl$Material_Options$styled,
+		_elm_lang$html$Html$p,
+		{
+			ctor: '::',
+			_0: _debois$elm_mdl$Material_Typography$display3,
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(
+				A2(
+					F2(
+						function (x, y) {
+							return A2(_elm_lang$core$Basics_ops['++'], x, y);
+						}),
+					_elm_lang$core$Basics$toString(
+						_elm_lang$core$List$length(model.searchedRequests)),
+					A2(
+						F2(
+							function (x, y) {
+								return A2(_elm_lang$core$Basics_ops['++'], x, y);
+							}),
+						'/',
+						_elm_lang$core$Basics$toString(
+							_elm_lang$core$List$length(model.allRequests))))),
+			_1: {ctor: '[]'}
+		});
 };
 var _user$project$View$display = function (model) {
 	return A3(
@@ -18532,12 +19198,12 @@ var _user$project$View$display = function (model) {
 								_elm_lang$html$Html$div,
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html_Attributes$class('grid-item search-item'),
+									_0: _elm_lang$html$Html_Attributes$class('grid-item search-songs-item'),
 									_1: {ctor: '[]'}
 								},
 								{
 									ctor: '::',
-									_0: _user$project$View$searchBox(model),
+									_0: _user$project$View$searchSongsBox(model),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -18546,12 +19212,12 @@ var _user$project$View$display = function (model) {
 									_elm_lang$html$Html$div,
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html_Attributes$class('grid-item chart-item'),
+										_0: _elm_lang$html$Html_Attributes$class('grid-item search-requesters-item'),
 										_1: {ctor: '[]'}
 									},
 									{
 										ctor: '::',
-										_0: _user$project$View$pieChart(model),
+										_0: _user$project$View$searchRequestersBox(model),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -18560,15 +19226,45 @@ var _user$project$View$display = function (model) {
 										_elm_lang$html$Html$div,
 										{
 											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$class('grid-item table-item'),
+											_0: _elm_lang$html$Html_Attributes$class('grid-item counter-item'),
 											_1: {ctor: '[]'}
 										},
 										{
 											ctor: '::',
-											_0: _user$project$View$mainTable(model),
+											_0: _user$project$View$counter(model),
 											_1: {ctor: '[]'}
 										}),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$div,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('grid-item chart-item'),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: _user$project$View$pieChart(model),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$div,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('grid-item table-item'),
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: _user$project$View$mainTable(model),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}
 								}
 							}
 						}),
@@ -18587,115 +19283,45 @@ var _user$project$View$view = function (model) {
 		});
 };
 
-var _user$project$States$subscriptions = function (model) {
-	return _elm_lang$core$Platform_Sub$batch(
-		{ctor: '[]'});
-};
-var _user$project$States$initialModel = function (flags) {
-	return {
-		mdl: _debois$elm_mdl$Material$model,
-		searchString: '',
-		allRequests: flags.requests,
-		searchedRequests: flags.requests,
-		people: A2(
-			_elm_community$list_extra$List_Extra$uniqueBy,
-			_elm_lang$core$Basics$toString,
-			A2(
-				_elm_lang$core$List$map,
-				function (_) {
-					return _.requesterName;
-				},
-				flags.requests)),
-		showPercentages: flags.showPercentages
-	};
-};
-var _user$project$States$initialModelWithFlags = function (flags) {
-	return {
-		ctor: '_Tuple2',
-		_0: _user$project$States$initialModel(flags),
-		_1: _elm_lang$core$Platform_Cmd$none
-	};
-};
-
-var _user$project$Update$matchesSearch = F2(
-	function (songRequest, searchText) {
-		return A2(
-			_elm_lang$core$Regex$contains,
-			_elm_lang$core$Regex$caseInsensitive(
-				_elm_lang$core$Regex$regex(searchText)),
-			songRequest.artistName) || A2(
-			_elm_lang$core$Regex$contains,
-			_elm_lang$core$Regex$caseInsensitive(
-				_elm_lang$core$Regex$regex(searchText)),
-			songRequest.songName);
-	});
-var _user$project$Update$filterResultsOnSearch = function (model) {
-	return _elm_lang$core$Native_Utils.update(
-		model,
-		{
-			searchedRequests: A2(
-				_elm_lang$core$List$filter,
-				function (i) {
-					return A2(_user$project$Update$matchesSearch, i, model.searchString);
-				},
-				model.allRequests)
-		});
-};
-var _user$project$Update$updateSearchString = F2(
-	function (model, searchText) {
-		return _elm_lang$core$Native_Utils.update(
-			model,
-			{searchString: searchText});
-	});
-var _user$project$Update$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		if (_p0.ctor === 'Mdl') {
-			return A3(_debois$elm_mdl$Material$update, _user$project$Types$Mdl, _p0._0, model);
-		} else {
-			return {
-				ctor: '_Tuple2',
-				_0: _user$project$Update$filterResultsOnSearch(
-					A2(_user$project$Update$updateSearchString, model, _p0._0)),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
-		}
-	});
-
 var _user$project$Main$main = _elm_lang$html$Html$programWithFlags(
 	{init: _user$project$States$initialModelWithFlags, subscriptions: _user$project$States$subscriptions, update: _user$project$Update$update, view: _user$project$View$view})(
 	A2(
 		_elm_lang$core$Json_Decode$andThen,
-		function (requests) {
+		function (randomSeed) {
 			return A2(
 				_elm_lang$core$Json_Decode$andThen,
-				function (showPercentages) {
-					return _elm_lang$core$Json_Decode$succeed(
-						{requests: requests, showPercentages: showPercentages});
+				function (requests) {
+					return A2(
+						_elm_lang$core$Json_Decode$andThen,
+						function (showPercentages) {
+							return _elm_lang$core$Json_Decode$succeed(
+								{randomSeed: randomSeed, requests: requests, showPercentages: showPercentages});
+						},
+						A2(_elm_lang$core$Json_Decode$field, 'showPercentages', _elm_lang$core$Json_Decode$bool));
 				},
-				A2(_elm_lang$core$Json_Decode$field, 'showPercentages', _elm_lang$core$Json_Decode$bool));
-		},
-		A2(
-			_elm_lang$core$Json_Decode$field,
-			'requests',
-			_elm_lang$core$Json_Decode$list(
 				A2(
-					_elm_lang$core$Json_Decode$andThen,
-					function (artistName) {
-						return A2(
+					_elm_lang$core$Json_Decode$field,
+					'requests',
+					_elm_lang$core$Json_Decode$list(
+						A2(
 							_elm_lang$core$Json_Decode$andThen,
-							function (requesterName) {
+							function (artistName) {
 								return A2(
 									_elm_lang$core$Json_Decode$andThen,
-									function (songName) {
-										return _elm_lang$core$Json_Decode$succeed(
-											{artistName: artistName, requesterName: requesterName, songName: songName});
+									function (requesterName) {
+										return A2(
+											_elm_lang$core$Json_Decode$andThen,
+											function (songName) {
+												return _elm_lang$core$Json_Decode$succeed(
+													{artistName: artistName, requesterName: requesterName, songName: songName});
+											},
+											A2(_elm_lang$core$Json_Decode$field, 'songName', _elm_lang$core$Json_Decode$string));
 									},
-									A2(_elm_lang$core$Json_Decode$field, 'songName', _elm_lang$core$Json_Decode$string));
+									A2(_elm_lang$core$Json_Decode$field, 'requesterName', _elm_lang$core$Json_Decode$string));
 							},
-							A2(_elm_lang$core$Json_Decode$field, 'requesterName', _elm_lang$core$Json_Decode$string));
-					},
-					A2(_elm_lang$core$Json_Decode$field, 'artistName', _elm_lang$core$Json_Decode$string))))));
+							A2(_elm_lang$core$Json_Decode$field, 'artistName', _elm_lang$core$Json_Decode$string)))));
+		},
+		A2(_elm_lang$core$Json_Decode$field, 'randomSeed', _elm_lang$core$Json_Decode$float)));
 
 var Elm = {};
 Elm['Main'] = Elm['Main'] || {};
