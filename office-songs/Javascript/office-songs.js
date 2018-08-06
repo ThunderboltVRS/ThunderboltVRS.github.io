@@ -20763,39 +20763,21 @@ var _user$project$Page_Stats$pieChart = function (model) {
 		defaults,
 		{colorAssignment: colorAssignment});
 	return A2(
-		_elm_lang$html$Html$div,
-		{ctor: '[]'},
-		{
-			ctor: '::',
-			_0: A2(
-				_juanedi$charty$Charty_PieChart$view,
-				chartConfig,
-				_user$project$Page_Stats$getPieData(model)),
-			_1: {ctor: '[]'}
-		});
+		_juanedi$charty$Charty_PieChart$view,
+		chartConfig,
+		_user$project$Page_Stats$getPieData(model));
 };
 var _user$project$Page_Stats$view = function (model) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('stats-grid-container'),
+			_0: _elm_lang$html$Html_Attributes$class('grid-item chart-item'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$div,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('grid-item chart-item'),
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _user$project$Page_Stats$pieChart(model),
-					_1: {ctor: '[]'}
-				}),
+			_0: _user$project$Page_Stats$pieChart(model),
 			_1: {ctor: '[]'}
 		});
 };
