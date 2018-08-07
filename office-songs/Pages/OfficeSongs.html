@@ -1,46 +1,55 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <head>
-<style>
-.requests-grid-container {
-  display: grid;
-  background-color: white;
-  grid-template-columns: 2fr 2fr 1fr;
-  grid-template-rows: 60px 1fr;
-  grid-column-gap: 50px;
-  grid-row-gap: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-}
-.grid-item {
-  background-color: white;
-}
-.search-songs-item {
-  grid-column: 1;
-  grid-row: 1;
-}
-.search-requesters-item {
-  grid-column: 2;
-  grid-row: 1;
-}
-.chart-item {
-	height: 80%;
-	padding: 10px;
-}
-.table-item {
-  grid-column: 1 / span 3;
-  grid-row: 2;
-}
-.counter-item {
-  grid-column: 3;
-  grid-row: 1;
-}
-
-.chart-item svg{
-	height: 100% !important;
-}
-</style>
-</head>
+  <style>
+  .requests-grid-container {
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 60px 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+  .grid-item {
+    background-color: white;
+  }
+  .search-songs-item {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .search-requesters-item {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .table-item {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+  }
+  
+  .chart-item svg{
+    height: 100% !important;
+  }
+  
+  .stats-grid-container {
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-column-gap: 50px;
+    grid-row-gap: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+  }
+  
+  .stats-card-item {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  </style>
+  </head>
 
 <div id="elmContainer" style="height: 100%;">
 </div>
