@@ -15688,68 +15688,6 @@ var _elm_lang$core$Regex$AtMost = function (a) {
 };
 var _elm_lang$core$Regex$All = {ctor: 'All'};
 
-var _debois$elm_mdl$Material_Scheme$scheme = F2(
-	function (primary, accent) {
-		return A2(
-			_elm_lang$core$String$join,
-			'\n',
-			A2(
-				_elm_lang$core$List$map,
-				function (url) {
-					return A2(
-						_elm_lang$core$Basics_ops['++'],
-						'@import url(',
-						A2(_elm_lang$core$Basics_ops['++'], url, ');'));
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$core$Basics_ops['++'],
-						'https://code.getmdl.io/1.3.0/',
-						A2(_debois$elm_mdl$Material_Color$scheme, primary, accent)),
-					_1: {
-						ctor: '::',
-						_0: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-						_1: {
-							ctor: '::',
-							_0: 'https://fonts.googleapis.com/css?family=Roboto:400,300,500|Roboto+Mono|Roboto+Condensed:400,700&subset=latin,latin-ext',
-							_1: {ctor: '[]'}
-						}
-					}
-				}));
-	});
-var _debois$elm_mdl$Material_Scheme$topWithScheme = F3(
-	function (primary, accent, content) {
-		return A2(
-			_elm_lang$html$Html$div,
-			{ctor: '[]'},
-			{
-				ctor: '::',
-				_0: A3(
-					_elm_lang$html$Html$node,
-					'style',
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$type_('text/css'),
-						_1: {ctor: '[]'}
-					},
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html$text(
-							A2(_debois$elm_mdl$Material_Scheme$scheme, primary, accent)),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: content,
-					_1: {ctor: '[]'}
-				}
-			});
-	});
-var _debois$elm_mdl$Material_Scheme$top = function (content) {
-	return A3(_debois$elm_mdl$Material_Scheme$topWithScheme, _debois$elm_mdl$Material_Color$Grey, _debois$elm_mdl$Material_Color$Grey, content);
-};
-
 var _debois$elm_mdl$Material_Table$defaultCell = {numeric: false};
 var _debois$elm_mdl$Material_Table$td = F2(
 	function (options, html) {
@@ -20256,13 +20194,44 @@ var _user$project$Page_Stats$personCard = F2(
 											}),
 										_1: {ctor: '[]'}
 									}),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_debois$elm_mdl$Material_Card$subhead,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: A2(
+												_debois$elm_mdl$Material_Options$span,
+												{
+													ctor: '::',
+													_0: A2(_debois$elm_mdl$Material_Options$css, 'float', 'right'),
+													_1: {
+														ctor: '::',
+														_0: A2(_debois$elm_mdl$Material_Options$css, 'opacity', '0.6'),
+														_1: {ctor: '[]'}
+													}
+												},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text(
+														_elm_lang$core$Basics$toString(stats.numberPerPerson)),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_debois$elm_mdl$Material_Card$actions,
-								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _debois$elm_mdl$Material_Card$border,
+									_1: {ctor: '[]'}
+								},
 								_user$project$Page_Stats$list(
 									_user$project$Page_Stats$topThreeArtists(stats))),
 							_1: {
@@ -20289,30 +20258,7 @@ var _user$project$Page_Stats$personCard = F2(
 													_user$project$Page_Stats$percentageToString(stats.percentage)),
 												_1: {ctor: '[]'}
 											}),
-										_1: {
-											ctor: '::',
-											_0: _debois$elm_mdl$Material_Layout$spacer,
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_debois$elm_mdl$Material_Options$span,
-													{ctor: '[]'},
-													{
-														ctor: '::',
-														_0: _elm_lang$html$Html$text(
-															A2(
-																_elm_lang$core$Basics_ops['++'],
-																_elm_lang$core$Basics$toString(stats.numberPerPerson),
-																A2(
-																	_elm_lang$core$Basics_ops['++'],
-																	'/',
-																	_elm_lang$core$Basics$toString(
-																		_elm_lang$core$List$length(model.allRequests))))),
-														_1: {ctor: '[]'}
-													}),
-												_1: {ctor: '[]'}
-											}
-										}
+										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
 							}
@@ -20577,7 +20523,27 @@ var _user$project$Main$newHeader = function (model) {
 						_0: A2(
 							_debois$elm_mdl$Material_Layout$navigation,
 							{ctor: '[]'},
-							{ctor: '[]'}),
+							{
+								ctor: '::',
+								_0: A2(
+									_debois$elm_mdl$Material_Options$span,
+									{
+										ctor: '::',
+										_0: _debois$elm_mdl$Material_Typography$display1,
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text(
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												_elm_lang$core$Basics$toString(
+													_elm_lang$core$List$length(model.allRequests)),
+												' Songs')),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}),
 						_1: {ctor: '[]'}
 					}
 				}
