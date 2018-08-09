@@ -19717,9 +19717,9 @@ var _user$project$Types$SongRequest = F3(
 	function (a, b, c) {
 		return {requesterName: a, artistName: b, songName: c};
 	});
-var _user$project$Types$Stats = F3(
-	function (a, b, c) {
-		return {person: a, numberPerPerson: b, percentage: c};
+var _user$project$Types$Stats = F4(
+	function (a, b, c, d) {
+		return {person: a, numberPerPerson: b, percentage: c, artistsSongCount: d};
 	});
 var _user$project$Types$Model = function (a) {
 	return function (b) {
@@ -20030,15 +20030,29 @@ var _user$project$Page_Requests$view = function (model) {
 		});
 };
 
+var _user$project$Page_Stats$topThreeArtists = function (stats) {
+	return A2(
+		_elm_lang$core$List$take,
+		3,
+		_elm_lang$core$List$reverse(
+			A2(
+				_elm_lang$core$List$sortBy,
+				_elm_lang$core$Tuple$second,
+				_elm_lang$core$Dict$toList(stats.artistsSongCount))));
+};
+var _user$project$Page_Stats$requestsPerPerson = F2(
+	function (personName, allSongRequests) {
+		return A2(
+			_elm_lang$core$List$filter,
+			function (r) {
+				return _elm_lang$core$Native_Utils.eq(r.requesterName, personName);
+			},
+			allSongRequests);
+	});
 var _user$project$Page_Stats$countPerPerson = F2(
 	function (personName, songRequests) {
 		return _elm_lang$core$List$length(
-			A2(
-				_elm_lang$core$List$filter,
-				function (r) {
-					return _elm_lang$core$Native_Utils.eq(r.requesterName, personName);
-				},
-				songRequests));
+			A2(_user$project$Page_Stats$requestsPerPerson, personName, songRequests));
 	});
 var _user$project$Page_Stats$getPercentage = F2(
 	function (number, total) {
@@ -20056,8 +20070,29 @@ var _user$project$Page_Stats$getPercentage = F2(
 var _user$project$Page_Stats$percentageToString = function (percentage) {
 	return A2(
 		_elm_lang$core$Basics_ops['++'],
-		A2(_myrho$elm_round$Round$round, 2, percentage),
+		A2(_myrho$elm_round$Round$round, 0, percentage),
 		'%');
+};
+var _user$project$Page_Stats$groupAndCount = function (tags) {
+	return A3(
+		_elm_lang$core$List$foldr,
+		F2(
+			function (tag, carry) {
+				return A3(
+					_elm_lang$core$Dict$update,
+					tag,
+					function (existingCount) {
+						var _p1 = existingCount;
+						if (_p1.ctor === 'Just') {
+							return _elm_lang$core$Maybe$Just(_p1._0 + 1);
+						} else {
+							return _elm_lang$core$Maybe$Just(1);
+						}
+					},
+					carry);
+			}),
+		_elm_lang$core$Dict$empty,
+		tags);
 };
 var _user$project$Page_Stats$getStatsForPerson = F2(
 	function (model, person) {
@@ -20068,9 +20103,106 @@ var _user$project$Page_Stats$getStatsForPerson = F2(
 			percentage: A2(
 				_user$project$Page_Stats$getPercentage,
 				numberPerPerson,
-				_elm_lang$core$List$length(model.allRequests))
+				_elm_lang$core$List$length(model.allRequests)),
+			artistsSongCount: _user$project$Page_Stats$groupAndCount(
+				A2(
+					_elm_lang$core$List$map,
+					function (r) {
+						return r.artistName;
+					},
+					A2(_user$project$Page_Stats$requestsPerPerson, person, model.allRequests)))
 		};
 	});
+var _user$project$Page_Stats$cell = A2(_debois$elm_mdl$Material_Options$css, 'width', '50%');
+var _user$project$Page_Stats$row = function (stats) {
+	return A2(
+		_debois$elm_mdl$Material_Card$subhead,
+		{
+			ctor: '::',
+			_0: A2(_debois$elm_mdl$Material_Options$css, 'display', 'flex'),
+			_1: {
+				ctor: '::',
+				_0: A2(_debois$elm_mdl$Material_Options$css, 'justify-content', 'space-between'),
+				_1: {
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Options$css, 'align-items', 'center'),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'padding', '.3rem 2.5rem'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_debois$elm_mdl$Material_Options$span,
+				{
+					ctor: '::',
+					_0: _user$project$Page_Stats$cell,
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'overflow', 'hidden'),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_elm_lang$core$Tuple$first(stats)),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_debois$elm_mdl$Material_Options$span,
+					{
+						ctor: '::',
+						_0: _user$project$Page_Stats$cell,
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'right'),
+							_1: {ctor: '[]'}
+						}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text(
+							_elm_lang$core$Basics$toString(
+								_elm_lang$core$Tuple$second(stats))),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Page_Stats$list = function (topthree) {
+	return {
+		ctor: '::',
+		_0: A2(
+			_debois$elm_mdl$Material_Options$div,
+			{
+				ctor: '::',
+				_0: A2(_debois$elm_mdl$Material_Options$css, 'display', 'flex'),
+				_1: {
+					ctor: '::',
+					_0: A2(_debois$elm_mdl$Material_Options$css, 'flex-direction', 'column'),
+					_1: {
+						ctor: '::',
+						_0: A2(_debois$elm_mdl$Material_Options$css, 'padding', '1rem 0'),
+						_1: {
+							ctor: '::',
+							_0: A2(_debois$elm_mdl$Material_Options$css, 'color', 'rgba(0, 0, 0, 0.54)'),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			},
+			A2(_elm_lang$core$List$map, _user$project$Page_Stats$row, topthree)),
+		_1: {ctor: '[]'}
+	};
+};
 var _user$project$Page_Stats$personCard = F2(
 	function (model, person) {
 		var stats = A2(_user$project$Page_Stats$getStatsForPerson, model, person);
@@ -20106,67 +20238,33 @@ var _user$project$Page_Stats$personCard = F2(
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text(person),
-										_1: {ctor: '[]'}
-									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_debois$elm_mdl$Material_Card$subhead,
-										{ctor: '[]'},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text(
-												A2(
-													_elm_lang$core$Basics_ops['++'],
-													_elm_lang$core$Basics$toString(stats.numberPerPerson),
-													A2(
-														_elm_lang$core$Basics_ops['++'],
-														'/',
-														_elm_lang$core$Basics$toString(
-															_elm_lang$core$List$length(model.allRequests))))),
-											_1: {ctor: '[]'}
-										}),
-									_1: {
-										ctor: '::',
 										_0: A2(
-											_debois$elm_mdl$Material_Options$div,
+											_debois$elm_mdl$Material_Options$span,
 											{
 												ctor: '::',
-												_0: A2(_debois$elm_mdl$Material_Options$css, 'padding', '2rem 2rem 0 2rem'),
-												_1: {ctor: '[]'}
+												_0: _debois$elm_mdl$Material_Typography$display2,
+												_1: {
+													ctor: '::',
+													_0: _debois$elm_mdl$Material_Color$text(_debois$elm_mdl$Material_Color$primary),
+													_1: {ctor: '[]'}
+												}
 											},
 											{
 												ctor: '::',
-												_0: A2(
-													_debois$elm_mdl$Material_Options$span,
-													{
-														ctor: '::',
-														_0: _debois$elm_mdl$Material_Typography$display4,
-														_1: {
-															ctor: '::',
-															_0: _debois$elm_mdl$Material_Color$text(_debois$elm_mdl$Material_Color$primary),
-															_1: {ctor: '[]'}
-														}
-													},
-													{
-														ctor: '::',
-														_0: _elm_lang$html$Html$text(
-															_user$project$Page_Stats$percentageToString(stats.percentage)),
-														_1: {ctor: '[]'}
-													}),
+												_0: _elm_lang$html$Html$text(person),
 												_1: {ctor: '[]'}
 											}),
 										_1: {ctor: '[]'}
-									}
-								}
+									}),
+								_1: {ctor: '[]'}
 							}),
 						_1: {
 							ctor: '::',
 							_0: A2(
 								_debois$elm_mdl$Material_Card$actions,
 								{ctor: '[]'},
-								{ctor: '[]'}),
+								_user$project$Page_Stats$list(
+									_user$project$Page_Stats$topThreeArtists(stats))),
 							_1: {
 								ctor: '::',
 								_0: A2(
@@ -20174,8 +20272,47 @@ var _user$project$Page_Stats$personCard = F2(
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _debois$elm_mdl$Material_Icon$i('music_note'),
-										_1: {ctor: '[]'}
+										_0: A2(
+											_debois$elm_mdl$Material_Options$span,
+											{
+												ctor: '::',
+												_0: _debois$elm_mdl$Material_Typography$display2,
+												_1: {
+													ctor: '::',
+													_0: _debois$elm_mdl$Material_Color$text(_debois$elm_mdl$Material_Color$primary),
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text(
+													_user$project$Page_Stats$percentageToString(stats.percentage)),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: _debois$elm_mdl$Material_Layout$spacer,
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_debois$elm_mdl$Material_Options$span,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text(
+															A2(
+																_elm_lang$core$Basics_ops['++'],
+																_elm_lang$core$Basics$toString(stats.numberPerPerson),
+																A2(
+																	_elm_lang$core$Basics_ops['++'],
+																	'/',
+																	_elm_lang$core$Basics$toString(
+																		_elm_lang$core$List$length(model.allRequests))))),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
+										}
 									}),
 								_1: {ctor: '[]'}
 							}
@@ -20184,204 +20321,6 @@ var _user$project$Page_Stats$personCard = F2(
 				_1: {ctor: '[]'}
 			});
 	});
-var _user$project$Page_Stats$cell = A2(_debois$elm_mdl$Material_Options$css, 'width', '64px');
-var _user$project$Page_Stats$row = function (_p1) {
-	var _p2 = _p1;
-	var _p3 = _p2._2;
-	return A2(
-		_debois$elm_mdl$Material_Card$subhead,
-		{
-			ctor: '::',
-			_0: A2(_debois$elm_mdl$Material_Options$css, 'display', 'flex'),
-			_1: {
-				ctor: '::',
-				_0: A2(_debois$elm_mdl$Material_Options$css, 'justify-content', 'space-between'),
-				_1: {
-					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Options$css, 'align-items', 'center'),
-					_1: {
-						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'padding', '.3rem 2.5rem'),
-						_1: {ctor: '[]'}
-					}
-				}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_debois$elm_mdl$Material_Options$span,
-				{
-					ctor: '::',
-					_0: _user$project$Page_Stats$cell,
-					_1: {ctor: '[]'}
-				},
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html$text(_p2._0),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_debois$elm_mdl$Material_Options$span,
-					{
-						ctor: '::',
-						_0: _user$project$Page_Stats$cell,
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'center'),
-							_1: {ctor: '[]'}
-						}
-					},
-					{
-						ctor: '::',
-						_0: A2(
-							_debois$elm_mdl$Material_Icon$view,
-							_p2._4,
-							{
-								ctor: '::',
-								_0: _debois$elm_mdl$Material_Color$text(_p2._3),
-								_1: {
-									ctor: '::',
-									_0: _debois$elm_mdl$Material_Icon$size18,
-									_1: {ctor: '[]'}
-								}
-							}),
-						_1: {ctor: '[]'}
-					}),
-				_1: {
-					ctor: '::',
-					_0: A2(
-						_debois$elm_mdl$Material_Options$span,
-						{
-							ctor: '::',
-							_0: _user$project$Page_Stats$cell,
-							_1: {
-								ctor: '::',
-								_0: A2(_debois$elm_mdl$Material_Options$css, 'text-align', 'right'),
-								_1: {ctor: '[]'}
-							}
-						},
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html$text(
-								A2(
-									_elm_lang$core$Basics_ops['++'],
-									_elm_lang$core$Basics$toString(_p2._1),
-									'° ')),
-							_1: {
-								ctor: '::',
-								_0: A2(
-									_debois$elm_mdl$Material_Options$span,
-									{
-										ctor: '::',
-										_0: A2(_debois$elm_mdl$Material_Options$css, 'color', 'rgba(0,0,0,0.37)'),
-										_1: {ctor: '[]'}
-									},
-									{
-										ctor: '::',
-										_0: _elm_lang$html$Html$text(
-											(_elm_lang$core$Native_Utils.cmp(_p3, 0) > -1) ? A2(
-												_elm_lang$core$Basics_ops['++'],
-												_elm_lang$core$Basics$toString(_p3),
-												'°') : ''),
-										_1: {ctor: '[]'}
-									}),
-								_1: {ctor: '[]'}
-							}
-						}),
-					_1: {ctor: '[]'}
-				}
-			}
-		});
-};
-var _user$project$Page_Stats$list = function (items) {
-	return {
-		ctor: '::',
-		_0: A2(
-			_debois$elm_mdl$Material_Options$div,
-			{
-				ctor: '::',
-				_0: A2(_debois$elm_mdl$Material_Options$css, 'display', 'flex'),
-				_1: {
-					ctor: '::',
-					_0: A2(_debois$elm_mdl$Material_Options$css, 'flex-direction', 'column'),
-					_1: {
-						ctor: '::',
-						_0: A2(_debois$elm_mdl$Material_Options$css, 'padding', '1rem 0'),
-						_1: {
-							ctor: '::',
-							_0: A2(_debois$elm_mdl$Material_Options$css, 'color', 'rgba(0, 0, 0, 0.54)'),
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			},
-			A2(_elm_lang$core$List$map, _user$project$Page_Stats$row, items)),
-		_1: {ctor: '[]'}
-	};
-};
-var _user$project$Page_Stats$rain = A2(_debois$elm_mdl$Material_Color$color, _debois$elm_mdl$Material_Color$LightBlue, _debois$elm_mdl$Material_Color$S500);
-var _user$project$Page_Stats$today = {
-	ctor: '::',
-	_0: {ctor: '_Tuple5', _0: 'now', _1: 21, _2: -1, _3: _debois$elm_mdl$Material_Color$primary, _4: 'cloud'},
-	_1: {
-		ctor: '::',
-		_0: {ctor: '_Tuple5', _0: '16', _1: 21, _2: -1, _3: _debois$elm_mdl$Material_Color$primary, _4: 'cloud'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple5', _0: '17', _1: 20, _2: -1, _3: _debois$elm_mdl$Material_Color$primary, _4: 'cloud'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple5', _0: '18', _1: 20, _2: -1, _3: _user$project$Page_Stats$rain, _4: 'grain'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple5', _0: '19', _1: 19, _2: -1, _3: _user$project$Page_Stats$rain, _4: 'grain'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple5', _0: '20', _1: 19, _2: -1, _3: _debois$elm_mdl$Material_Color$primary, _4: 'cloud_queue'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple5', _0: '21', _1: 28, _2: -1, _3: _debois$elm_mdl$Material_Color$primary, _4: 'cloud_queue'},
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}
-		}
-	}
-};
-var _user$project$Page_Stats$sun = A2(_debois$elm_mdl$Material_Color$color, _debois$elm_mdl$Material_Color$Amber, _debois$elm_mdl$Material_Color$S500);
-var _user$project$Page_Stats$next3 = {
-	ctor: '::',
-	_0: {ctor: '_Tuple5', _0: 'thu', _1: 21, _2: 14, _3: _user$project$Page_Stats$sun, _4: 'wb_sunny'},
-	_1: {
-		ctor: '::',
-		_0: {ctor: '_Tuple5', _0: 'fri', _1: 22, _2: 15, _3: _user$project$Page_Stats$rain, _4: 'grain'},
-		_1: {
-			ctor: '::',
-			_0: {ctor: '_Tuple5', _0: 'sat', _1: 20, _2: 13, _3: _user$project$Page_Stats$sun, _4: 'wb_sunny'},
-			_1: {
-				ctor: '::',
-				_0: {ctor: '_Tuple5', _0: 'sun', _1: 21, _2: 13, _3: _user$project$Page_Stats$rain, _4: 'grain'},
-				_1: {
-					ctor: '::',
-					_0: {ctor: '_Tuple5', _0: 'mon', _1: 20, _2: 13, _3: _user$project$Page_Stats$rain, _4: 'grain'},
-					_1: {
-						ctor: '::',
-						_0: {ctor: '_Tuple5', _0: 'tue', _1: 20, _2: 13, _3: _user$project$Page_Stats$sun, _4: 'wb_sunny'},
-						_1: {
-							ctor: '::',
-							_0: {ctor: '_Tuple5', _0: 'wed', _1: 21, _2: 15, _3: _user$project$Page_Stats$sun, _4: 'wb_sunny'},
-							_1: {ctor: '[]'}
-						}
-					}
-				}
-			}
-		}
-	}
-};
 var _user$project$Page_Stats$statCards = function (model) {
 	return A2(
 		_elm_lang$core$List$map,
