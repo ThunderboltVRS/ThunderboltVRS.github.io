@@ -1,0 +1,1 @@
+uglifyjs song-requests.js --compress | uglifyjs --mangle --output=song-requests.js
